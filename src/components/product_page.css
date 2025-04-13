@@ -1,0 +1,231 @@
+.product_b_container {
+    display: flex;
+    flex-direction: column;
+    
+    margin-top: 40px;
+  }
+  
+  /* Top Section */
+  .product_b_top {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5%;
+    width: 90%;
+  }
+  
+  .product_b_images {
+    /* flex: 1 1 400px; */
+    width: 45%;
+  }
+  
+  .product_b_main_img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    position: sticky;
+    top: 0;
+  }
+  
+  .product_b_thumbnails {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .product_b_thumb {
+    width: 80px;
+    height: auto;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: transform 0.2s;
+  }
+  
+  .product_b_thumb:hover {
+    transform: scale(1.05);
+  }
+  
+  .product_b_info {
+    /* flex: 1 1 400px; */
+    width: 50%;
+  }
+  
+  .product_b_title {
+    font-size: 32px;
+    margin-bottom: 20px;
+  }
+  
+  .product_b_upload_btn {
+    background: black;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 25px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-bottom: 30px;
+    transition: background 0.3s;
+    font-weight: 700;
+  }
+  
+  .product_b_upload_btn:hover {
+    background: white;
+    color: black;
+    border: 2px solid black;
+  }
+  
+  .product_b_description h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    font-weight: 700;
+  }
+  
+  .product_b_description p {
+    margin-bottom: 15px;
+    line-height: 1.6;
+  }
+  
+  .product_b_description ul {
+    list-style: disc inside;
+  }
+  
+  .product_b_description li {
+    margin-bottom: 8px;
+  }
+  
+  /* Resources Section */
+  .product_b_resources {
+    padding: 30px 20px;
+    border-radius: 8px;
+    width: 90%;
+  }
+  
+  .product_b_resources h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .product_b_view_toggle {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .product_b_grid_btn, .product_b_list_btn {
+    background: white;
+    border: 1px solid #ccc;
+    padding: 8px 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 14px;
+    transition: background 0.3s;
+  }
+  
+  .product_b_grid_btn:hover, .product_b_list_btn:hover {
+    background: #ddd;
+  }
+  
+  .product_b_documents {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  
+  .product_b_doc {
+    width: 150px;
+    height: auto;
+    border-radius: 5px;
+  }
+  
+  /* Responsive Behavior */
+  @media (max-width: 768px) {
+    .product_b_top {
+      flex-direction: column;
+    }
+    
+    .product_b_documents {
+      justify-content: center;
+    }
+  }
+
+  .spec_container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+.spec_title {
+    font-size: 2rem;
+    color: black;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #e0e0e0;
+    padding-bottom: 10px;
+    font-weight: 700;
+}
+.spec_section {
+    margin-bottom: 20px;
+}
+.spec_heading {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+.spec_text {
+    margin-bottom: 15px;
+}
+.spec_table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+.spec_table th, .spec_table td {
+    text-align: left;
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+}
+.spec_list {
+    list-style: none;
+    padding-left: 20px;
+}
+.spec_list li {
+    position: relative;
+    margin-bottom: 8px;
+}
+.spec_list li::before {
+    content: '\25A0';
+    color: #c80000;
+    font-size: 12px;
+    position: absolute;
+    left: -15px;
+    top: 3px;
+}
+
+@media (max-width: 768px) {
+    .spec_title {
+        font-size: 1.5rem;
+    }
+    .spec_container {
+        padding: 15px;
+    }
+}
+
+
+
+.sec_c_banner{
+    width: 90%;
+    height: 250px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+.sec_c_banner_item{
+    background-color: #d9d9d9;    
+    width: 30%;
+    position: relative;
+    height: 100%;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}

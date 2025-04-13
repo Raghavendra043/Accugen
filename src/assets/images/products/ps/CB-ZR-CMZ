@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Milled Titanium Bars</title>
+  <link rel="stylesheet" href="../product_page.css">
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="../partners.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <!-- Accugen -->
+            <img src="../images/logo_dark.webp" alt="">
+        </div>
+    
+        <nav>
+          <ul class="nav-links">
+            <li><a href="#products">SOLUTIONS</a></li>
+            <li><a href="#about">ACCUGEN™ ADVANTAGE</a></li>
+            <li><a href="#contact">CONTACT</a></li>
+            <!-- <li><a href="#contact">Sign in</a></li> -->
+            <li><a href="#contact" class="new-customer-button">SIGN IN</a></li>
+          </ul>
+        </nav>
+    
+        <div class="burger">
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+      </header>
+
+  <section class="product_b_container">
+    <div class="product_b_top hori_center">
+      <div class="product_b_images">
+        <img src="../images/products/iBar.png" alt="Milled Titanium Bars" class="product_b_main_img">
+        
+      </div>
+
+      <div class="product_b_info">
+        <h1 class="product_b_title">ACCUGEN™ Milled Zirconia Crown and Bridge </h1>
+        <button class="product_b_upload_btn">SEND CASE</button>
+        
+        <div class="product_b_description">
+          <h2>Description</h2>
+          <p>
+            The ACCUGEN™ Milled Full Zirconia Crown is a high-performance, monolithic zirconia restoration designed for superior strength, aesthetics, and longevity. Milled from ceraMotion® Z zirconia, this crown delivers a perfect blend of natural translucency and durability, making it an ideal solution for both anterior and posterior full-coverage restorations.Unlike traditional PFM (Porcelain-Fused-to-Metal) crowns that are prone to chipping or metal exposure over time, our full zirconia crowns offer long-lasting wear resistance without compromising on aesthetics or function.
+          </p>
+       
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="product_b_resources hori_center">
+        
+
+        <!-- <div class="sec_c_banner hori_center">
+            <div class="sec_c_banner_item">
+                <div class="sec_c_b_d FIT_W FIT_H both_center">
+                    <div style="font-size: 1.5rem;">Fuck you</div>
+                    <div>this is good</div>
+                    <div><b>view Specification</b></div>
+                </div>
+            </div>
+            <div class="sec_c_banner_item">
+                <div class="sec_c_b_d FIT_W FIT_H both_center">
+                    <div style="font-size: 1.5rem;">Fuck you</div>
+                    <div>this is good</div>
+                    <div><b>view Specification</b></div>
+                </div>
+            </div>
+            <div class="sec_c_banner_item">
+                <div class="sec_c_b_d FIT_W FIT_H both_center">
+                    <div style="font-size: 1.5rem;">Fuck you</div>
+                    <div>this is good</div>
+                    <div><b>view Specification</b></div>
+                </div>
+            </div>
+        </div> -->
+
+        <div class="spec_container">
+            <h1 class="spec_title">
+              Specifications
+            </h1>
+    
+            <div class="spec_section">
+                <div class="spec_heading">Material:</div>
+                <div class="spec_text"> ceraMotion® Z Hybrid Zirconia
+                </div>
+            </div>
+    
+            <div class="spec_section">
+                <div class="spec_heading">Zirconium Oxide Type:</div>
+                <div class="spec_text"> Strong, ultra-highly translucent, multi-shaded</div>
+            </div>
+    
+            <div class="spec_section">
+                <div class="spec_heading">Flexural Strength:</div>
+                <div class="spec_text"> 1300 - 1020 MPa (zirconia component)
+
+                </div>
+            </div>
+
+            <div class="spec_section">
+              <div class="spec_heading">Available Shades:</div>
+              <div class="spec_text"> Bleach 1, Bleach 2, A1, A2, A3, A3.5, A4, B1, B2, C2
+
+
+              </div>
+          </div>
+
+          <div class="spec_section">
+            <div class="spec_heading">Translucency:</div>
+            <div class="spec_text">  44% – 47%
+
+            </div>
+        </div>
+
+          <div class="spec_section">
+            <div class="spec_heading">Additional Options:</div>
+            <div class="spec_text">  <ul class="spec_list">
+              <li>Stain and Glaze</li>
+          </ul>
+
+            </div>
+          </div>
+    
+        </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-left FIT_H">
+        <img src="../images/logo_white.webp"/>
+      <label>Where Dental Innovation Meets Business Growth.</label>
+      
+    </div>
+  
+    <div class="footer-links">
+      <div class="link-column">
+        <h3>Contact us</h3>
+        <label>
+            Email: contact@accugendental.com <br/>
+            Mobile : +91 7075488757<br/>
+            </label>
+            <div class="social-icons">
+                <a href="#"><img src="../images/whatsapp.png" alt="Instagram"></a>
+                <a href="#"><img src="../images/instagram.png" alt="Facebook"></a>
+                <a href="#"><img src="../images/youtube.png" alt="X"></a>
+                <a href="#"><img src="../images/linkedin.png" alt="LinkedIn"></a>
+              </div>
+      </div>
+  
+      
+  
+      <div class="link-column">
+        <h3>Quick links</h3>
+        <a href="#">Solutions</a>
+        <a href="#">ACCUGEN Advantage</a>
+        <a href="#">Contact us</a>
+      </div>
+
+      <div class="link-column address_footers">
+        <!-- <h3>Address</h3> -->
+        <span style="font-weight: 600;">Registered address:</span>
+        <label style="font-weight: 100;">6-3-244/5, Saradhadevi Street, Prem Nagar, Khairatabad, Hyderabad,
+        Telangana, 500004.
+        </label>
+        
+        <br/><br/>
+
+        <span style="font-weight: 600;"><b>Facility Address:</b></span>
+        <label style="font-weight: 100;">Accugen - Digital Dental Solutions<br/>
+        3rd Floor, Plot No 4R & 5R, Rajiv Gandhi Nagar, Sai Nagar, Kukatpally, Hyderabad,
+        Telangana, 500037.
+        </label>
+        <br/>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+
+    var des = "fuck you"
+  </script>
+<!-- Code injected by live-server -->
+<script>
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script>
+</body>
+</html>

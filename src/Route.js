@@ -1,0 +1,80 @@
+import { createBrowserRouter } from "react-router-dom";
+import App from "./App";
+import React from 'react';
+import HomePage from "./components/home";
+import Order_form from "./order_form";
+import Products from "./components/products";
+import Products_item from "./components/products_item";
+import AuthPage from "./components/login";
+import PrivateRoute from "./privateRoute";
+import Navbar from "./components/navbar";
+import Footer from "./components/footer";
+import Profile from "./components/profile";
+import Accgen_advantage from "./components/accugen_adv";
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <App />,
+    children: [
+      {
+        path: "/",
+        element: <div>
+          <Navbar/>
+              <HomePage/>
+              <Footer/>
+            </div>
+      },
+      {
+        path: "/auth/:method",
+        element: <div>
+          <Navbar/>
+              <AuthPage/>
+              <Footer/>
+            </div>
+      },
+      {
+        path: "/order_form/:product",
+        element: <PrivateRoute>
+          <Navbar/>
+              <Order_form/>
+              <Footer/>
+            </PrivateRoute>
+      },
+      {
+        path: "/products/:type",
+        element: <div>
+          <Navbar/>
+              <Products/>
+              <Footer/>
+            </div>
+      },
+      {
+        path: "/products/:type/:item",
+        element: (<>
+          <Navbar/>
+              <Products_item/>
+              <Footer/>
+            </>)
+      },
+      {
+        path: "/profile",
+        element: (<PrivateRoute>
+          <Navbar/>
+              <Profile/>
+              <Footer/>
+            </PrivateRoute>)
+      },
+      {
+        path: "/accugen_advantage",
+        element: (<>
+          <Navbar/>
+              <Accgen_advantage/>
+              <Footer/>
+            </>)
+      },
+    ]
+  }
+]);
+
+export default router;

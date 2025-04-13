@@ -1,0 +1,103 @@
+.authpage_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 60vh;
+    background-color: #f5f5f5;
+    padding: 20px;
+  }
+  
+  .authpage_card {
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 400px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .authpage_title {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #333;
+  }
+  
+  .authpage_form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .authpage_input {
+    margin-bottom: 15px;
+    padding: 10px 15px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+  }
+  
+  .authpage_radio_group {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 15px;
+  }
+  
+  .authpage_radio_label {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 14px;
+    color: #555;
+  }
+  
+  .authpage_radio_input {
+    cursor: pointer;
+  }
+  
+  .authpage_button {
+    padding: 12px;
+    background-color: #4CAF50;
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .authpage_button:hover {
+    background-color: #45a049;
+  }
+  
+  .authpage_text {
+    margin-top: 15px;
+    text-align: center;
+    font-size: 14px;
+    color: #777;
+  }
+  
+  .authpage_link {
+    color: #007bff;
+    cursor: pointer;
+    text-decoration: underline;
+  }
+  
+  .authpage_link:hover {
+    text-decoration: none;
+  }
+  
+  /* Responsive */
+  @media (max-width: 500px) {
+    .authpage_card {
+      padding: 20px;
+    }
+  
+    .authpage_title {
+      font-size: 20px;
+    }
+  
+    .authpage_button {
+      font-size: 14px;
+    }
+  }
+  
