@@ -137,18 +137,6 @@ export const Sampledata = [
         { "title": "Additional Options", "des": ["Stain and Glaze"] }
       ]
     },
-    {
-      "code": "SG-3D-PRINT",
-      "type": 1,
-      "sub": "",
-      h: "Guides",
-      "title": "ACCUGEN™ 3D Printed Surgical Guide",
-      "description": "At Accugen, our expertise in digital dentistry and precision manufacturing ensures that every 3D printed surgical guide supports a restorative-driven approach, helping dentists achieve optimal functionality, esthetics, and long-term success in implant placement.",
-      "key_features": [],
-      "specs": [
-        { "title": "Material", "des": "Biocompatible photopolymer resin with titanium insert." },
-        { "title": "Options", "des": ["Tooth Supported", "Tissue/Mucosa -Supported Surgical Guides", "Bone-Supported Surgical Guides"] }
-      ]
-    }
+    
   ]
   
