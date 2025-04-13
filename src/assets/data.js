@@ -1,8 +1,12 @@
+import implant_crowns from './images/products/ps/Implant Crowns and Bridges (Internet).png'
+
+import allzir from './images/products/ps/AllZir.png'
+
 export const Sampledata = [
     {
       "code": "CB-ZR-CMZ",
       "type": 2,
-      img : "",
+      img : implant_crowns,
       "title": "ACCUGEN™ Milled Zirconia Crown and Bridge",
       "description": "The ACCUGEN™ Milled Full Zirconia Crown is a high-performance, monolithic zirconia restoration designed for superior strength, aesthetics, and longevity. Milled from ceraMotion® Z zirconia, this crown delivers a perfect blend of natural translucency and durability, making it an ideal solution for both anterior and posterior full-coverage restorations.Unlike traditional PFM (Porcelain-Fused-to-Metal) crowns that are prone to chipping or metal exposure over time, our full zirconia crowns offer long-lasting wear resistance without compromising on aesthetics or function.",
       "key_features": [],
@@ -19,6 +23,7 @@ export const Sampledata = [
       "code": "FA-MB-RTI-001",
       "type": 1,
       sub: "Frameworks",
+        img : allzir,
       h: "FULL ARCH IMPLANT PROTHESIS",
       "title": "ACCUGEN™ Milled rematitan® Titanium Bar",
       "tag":" Fuck you bitch ",
@@ -132,18 +137,6 @@ export const Sampledata = [
         { "title": "Additional Options", "des": ["Stain and Glaze"] }
       ]
     },
-    {
-      "code": "SG-3D-PRINT",
-      "type": 1,
-      "sub": "",
-      h: "Guides",
-      "title": "ACCUGEN™ 3D Printed Surgical Guide",
-      "description": "At Accugen, our expertise in digital dentistry and precision manufacturing ensures that every 3D printed surgical guide supports a restorative-driven approach, helping dentists achieve optimal functionality, esthetics, and long-term success in implant placement.",
-      "key_features": [],
-      "specs": [
-        { "title": "Material", "des": "Biocompatible photopolymer resin with titanium insert." },
-        { "title": "Options", "des": ["Tooth Supported", "Tissue/Mucosa -Supported Surgical Guides", "Bone-Supported Surgical Guides"] }
-      ]
-    }
+    
   ]
   
