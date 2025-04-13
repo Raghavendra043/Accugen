@@ -1,5 +1,7 @@
 import implant_crowns from './images/products/ps/Implant Crowns and Bridges (Internet).png'
 
+import allzir from './images/products/ps/AllZir.png'
+
 export const Sampledata = [
     {
       "code": "CB-ZR-CMZ",
@@ -21,6 +23,7 @@ export const Sampledata = [
       "code": "FA-MB-RTI-001",
       "type": 1,
       sub: "Frameworks",
+        img : allzir,
       h: "FULL ARCH IMPLANT PROTHESIS",
       "title": "ACCUGEN™ Milled rematitan® Titanium Bar",
       "tag":" Fuck you bitch ",
