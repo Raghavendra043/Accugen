@@ -1,8 +1,10 @@
+import implant_crowns from './images/products/ps/Implant Crowns and Bridges (Internet).png'
+
 export const Sampledata = [
     {
       "code": "CB-ZR-CMZ",
       "type": 2,
-      img : "",
+      img : implant_crowns,
       "title": "ACCUGEN™ Milled Zirconia Crown and Bridge",
       "description": "The ACCUGEN™ Milled Full Zirconia Crown is a high-performance, monolithic zirconia restoration designed for superior strength, aesthetics, and longevity. Milled from ceraMotion® Z zirconia, this crown delivers a perfect blend of natural translucency and durability, making it an ideal solution for both anterior and posterior full-coverage restorations.Unlike traditional PFM (Porcelain-Fused-to-Metal) crowns that are prone to chipping or metal exposure over time, our full zirconia crowns offer long-lasting wear resistance without compromising on aesthetics or function.",
       "key_features": [],
