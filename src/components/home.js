@@ -132,12 +132,12 @@ function HomePage() {
                         <label>Implant Crowns and Bridges</label>
                     </div>
                 </a>
-                <a className="service-item-a" style={{ textDecoration: 'none', color: 'black' }} href="/products">
+                {/* <a className="service-item-a" style={{ textDecoration: 'none', color: 'black' }} href="/products">
                     <div class="service-item">
                         <img src={guideIcon} alt="" className="hori_center guide_img"/>
                         <label>Guides</label>
                     </div>
-                </a>
+                </a> */}
             </section>
         </div>
 
