@@ -8,7 +8,7 @@ export const addData = async (collection, doc, Data) => {
       if (Data && collection) {
         if (doc && doc.length > 0) {
           
-          await collection.set(Data);
+          await collection.doc(doc).set(Data);
         } else {
           await collection.add(Data);
         }

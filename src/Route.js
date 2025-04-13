@@ -2,7 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 import App from "./App";
 import React from 'react';
 import HomePage from "./components/home";
-import Order_form from "./order_form";
+import Order_form from "./components/order_forms/order_form";
 import Products from "./components/products";
 import Products_item from "./components/products_item";
 import AuthPage from "./components/login";

@@ -46,7 +46,7 @@
   margin-bottom: 16px;
 }
 .order_form_input_group {
-  margin-bottom: 16px;
+  margin-bottom: 5px;
 }
 .order_form_input_group label {
   display: block;
@@ -55,7 +55,8 @@
 }
 .order_form_input_group input,
 .order_form_input_group select,
-.order_form_input_group textarea {
+.order_form_input_group textarea,
+.order_form_input_group select {
   width: 100%;
   padding: 10px;
   border-radius: 4px;
@@ -463,5 +464,15 @@
       flex-direction: column;
     }
   }
-  
+  .order_done{
+    text-align: center;
+  }
+  .order_done button{
+    width: 100%;
+    border: none;
+    background-color: #2534f2;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 15px;
+  }
 /* // */

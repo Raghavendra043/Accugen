@@ -18,6 +18,15 @@ export const getData = async (Collectionref) => {
     }
 };
 
+export const getDBCount= async (collectionRef)=>{
+    try{
+        const snapshot = await collectionRef.count().get();
+        return snapshot.data().count ? snapshot.data().count : 1;
+    }catch(e){
+        
+    } 
+}
+
 export const getFabricDetails = async(types,category,  fabric = 0)=>{
 
     try{
