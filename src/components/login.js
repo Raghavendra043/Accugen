@@ -15,7 +15,7 @@ export default function AuthPage() {
     const navigate = useNavigate();
     const location = useLocation()
     const [redirect, setRedirect] = useState("/")
-  const [screen, setScreen] = useState("done"); // login | register | otp
+  const [screen, setScreen] = useState("login"); // login | register | otp
   const [isOrg, setIsOrg] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
@@ -109,6 +109,7 @@ export default function AuthPage() {
       console.log(otp, optInp)
       if(otp === optInp){
         console.log("otp good")
+        setScreen("done")
         sendToAdmin(formData).then((res)=>{
           console.log(res)
         })
@@ -202,6 +203,15 @@ export default function AuthPage() {
                 className="authpage_input"
                 required
               />
+              <input
+                type="phone"
+                name="phone"
+                placeholder="Phone number*"
+                value={formData.phone}
+                onChange={handleChange}
+                className="authpage_input"
+                required
+              />
               <div className="authpage_radio_group">
                 <label className="authpage_radio_label">
                   <input
@@ -247,14 +257,14 @@ export default function AuthPage() {
                 required
               />
               <input
-                type="password_re"
+                type="password"
                 name="password_re"
                 placeholder="Enter Password again"
-                ref={password_re}
+                
                 onChange={(e)=>{
                   setPassre(e.target.value)
                 }}
-                style={(formData.password === password_re.current || !password_re || !password_re.length) ? {} : {border:"1px solid red"}}
+                style={(formData.password === password_re || !password_re || !password_re.length) ? {} : {border:"1px solid red"}}
                 className="authpage_input"
                 required
               />
