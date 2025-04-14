@@ -4,6 +4,12 @@ import './products.css'
 import "./test.css"
 import "./accugen_adv.css"
 
+
+import Expert_Support from '../assets/images/accugen_adv/Expert_Support.png'
+import Milling_ti_gr from '../assets/images/accugen_adv/Milling_ti_gr.png'
+import Premium_Materials from '../assets/images/accugen_adv/Premium_Materials.png'
+import World_Class_Technology from '../assets/images/accugen_adv/World_Class_Technology.png'
+
 function Accgen_advantage() {
     return ( 
         <div>
@@ -22,7 +28,7 @@ function Accgen_advantage() {
     
     <section class="accu_section">
       <div class="accu_image-wrapper">
-        <img src="./images/products//World Class Technology.png" alt="Smiling woman" class="accu_image" />
+        <img src={World_Class_Technology} alt="Smiling woman" class="accu_image" />
         <div class="accu_overlay">
           
         </div>
@@ -40,7 +46,7 @@ function Accgen_advantage() {
     
     <section className="accu_section" style={{ flexDirection: 'row-reverse' }}>
       <div className="accu_image-wrapper">
-        <img src="./images/products/Premium Materials.png" alt="Smiling woman" className="accu_image" />
+        <img src={Premium_Materials} alt="Smiling woman" className="accu_image" />
         <div className="accu_overlay">
           
         </div>
@@ -56,7 +62,7 @@ function Accgen_advantage() {
     
     <section className="accu_section">
       <div className="accu_image-wrapper">
-        <img src="./images/products/Milling (Titanium and Graphene).png" alt="Smiling woman" className="accu_image" />
+        <img src={Milling_ti_gr} alt="Smiling woman" className="accu_image" />
         <div className="accu_overlay">
           
         </div>
@@ -72,7 +78,7 @@ function Accgen_advantage() {
 
     <section className="accu_section" style={{ flexDirection: 'row-reverse' }}>
         <div className="accu_image-wrapper">
-          <img src="./images/products/Expert Support.png" alt="Smiling woman" className="accu_image" />
+          <img src={Expert_Support} alt="Smiling woman" className="accu_image" />
           <div className="accu_overlay">
         
           </div>

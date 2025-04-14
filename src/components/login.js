@@ -2,7 +2,6 @@ import React, { useContext, useEffect, useState } from "react";
 import "./login.css";
 import { AuthContext } from "../Firebase/AuthProvider";
 import { redirect, useLocation, useNavigate, useParams } from "react-router-dom";
-import logoDark from '../assets/images/logo_dark.webp'
 
 export default function AuthPage() {
 
@@ -65,7 +64,11 @@ export default function AuthPage() {
       <div className="authpage_card">
         {screen === "login" && (
           <>
-            <h2 className="authpage_title">Login</h2>
+            <h2 className="authpage_title">MyACCUGEN</h2>
+            <div style={{textAlign:"center", width:"80%"}} className="hori_center">
+              Send, manage, and track all your cases in one place.
+            </div>
+            <br/>
             <form onSubmit={handleSubmit} className="authpage_form">
               <input
                 type="email"

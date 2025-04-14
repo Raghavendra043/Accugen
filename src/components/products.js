@@ -8,7 +8,7 @@ import { useParams } from 'react-router-dom'
 import { Sampledata } from '../assets/data'
 import { useState } from 'react'
 
-import pro_img from '../assets/images/products/ps/iBar.png'
+import pro_img from '../assets/images/products/implant/iBar.png'
 
 
 function Products() {
@@ -20,7 +20,7 @@ function Products() {
   useState(()=>{
     let D = []
     
-    if(type === "tooth_based"){
+    if(type === "tooth_supported"){
       
       D = Sampledata.filter(item => item.type === 2)
     } else{
@@ -44,10 +44,12 @@ function Products() {
 
     return ( 
     <div>
-      <div class="product_banner">
+      <div class="product_banner"
+        // style={{ backgroundImage: `url(${pro_img})` }}
+      >
         
         <div class="FIT_W both_center">
-          {type === "tooth_based" ? "Tooth-based Solutions" : "Implant Solutions" }
+          {type === "tooth_supported" ? "Tooth-Supported Solutions" : "Implant Solutions" }
         </div>
       </div>
 
@@ -58,23 +60,23 @@ function Products() {
       {data && Object.keys(data).map((value, key)=>{
         return(
           <>
-            <h2 className="product_a_main_title" style={{ textAlign: 'center' }}>{value}</h2>
+            <h2 className="product_a_main_title" style={{ textAlign: 'center', marginTop:"40px" }}>{value}</h2>
             {data[value] && Object.keys(data[value]).map((val, k)=>{
               return(
                 <>
-                <div class="cat_title_sub">
+                {val != "no" &&<div class="cat_title_sub" style={{marginTop:"20px"}}>
                   <div class="cat_line"></div>
                   <h2 className="product_a_main_title FIT_H">{val} </h2>
-                </div>
+                </div>}
                 <div className="product_a_grid">
                     {data[value][val] && data[value][val].map((val, key)=>{
                       return(
                         <div className="product_a_card">
-                            <a href={ type === "implant_based" ? `/products/implant_based/${val.code}` : `/products/tooth_based/${val.code}`}>
-                              <img src={pro_img} alt="ArgenZ HT+ Multilayer" className="product_a_image" />
+                            <a href={ type === "implant_solutions" ? `/products/implant_solutions/${val.code}` : `/products/tooth_supported/${val.code}`}>
+                              <img src={val.img} alt="ArgenZ HT+ Multilayer" className="product_a_image" />
                               <div className="FIT_W hori_center" style={{ textAlign: 'unset' }}>
                               <h3 className="product_a_product_name">{val.title}</h3>
-                              <p className="product_a_product_desc">CAD/CAM Milled with Grade 5 rematitan® Titanium</p>
+                              <p className="product_a_product_desc">{val.tag}</p>
                               </div>
                             </a>
                         </div>

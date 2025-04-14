@@ -58,7 +58,7 @@ const router = createBrowserRouter([
             </>)
       },
       {
-        path: "/profile",
+        path: "/MyACCUGEN",
         element: (<PrivateRoute>
           <Navbar/>
               <Profile/>

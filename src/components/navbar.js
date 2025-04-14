@@ -2,9 +2,9 @@ import { useContext } from 'react';
 import { AuthContext } from '../Firebase/AuthProvider';
 import './style.css'
 
-import logoDark from '../assets/images/logo_dark.webp'
-import logoWhite from '../assets/images/logo_white.webp'
-import acc from '../assets/images/acc.svg'
+import logoDark from '../assets/images/logos/logo_dark.webp'
+import logoWhite from '../assets/images/logos/logo_white.webp'
+import acc from '../assets/images/social/acc.svg'
 
 function Navbar() {
 
@@ -24,10 +24,10 @@ function Navbar() {
     
         <nav>
           <ul class="nav-links">
-            <li><a className='' href="/products/implant_based">SOLUTIONS</a></li>
+            <li><a className='' href="/products/implant_solutions">SOLUTIONS</a></li>
             <li><a className='' href="/accugen_advantage">ACCUGEN™ ADVANTAGE</a></li>
             <li><a className='' href="#">CONTACT</a></li>
-            <li><a className='' href="/profile">PROFILE</a></li>
+            <li><a className='' href="/MyACCUGEN">PROFILE</a></li>
             
           </ul>
         </nav>

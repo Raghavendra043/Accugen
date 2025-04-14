@@ -5,52 +5,64 @@ import "./test.css"
 import "./accugen_adv.css"
 
 // Import images
-import logoDark from '../assets/images/logo_dark.webp'
-import logoWhite from '../assets/images/logo_white.webp'
-import heroImage from '../assets/images/hero.png'
-import millingTitanium from '../assets/images/products/Milling (Titanium and Graphene).png'
-import camSystem from '../assets/images/CAM System.png'
-import millingRoom from '../assets/images/Milling Room.png'
-import barIcon from '../assets/images/Icons/Bar icon.png'
-import allOnXIcon from '../assets/images/Icons/All on X Full arch Prosthesis.png'
-import implantCrownsIcon from '../assets/images/Icons/Implant Crowns and Bridges.png'
-import guideIcon from '../assets/images/Icons/Guide.png'
-import crownsBridgesIcon from '../assets/images/Icons/Tooth Supported Solutions/Crowns and Bridges.png'
-import veneersIcon from '../assets/images/Icons/Tooth Supported Solutions/Veneers.png'
-import whatsappIcon from '../assets/images/whatsapp.png'
-import instagramIcon from '../assets/images/instagram.png'
-import youtubeIcon from '../assets/images/youtube.png'
-import linkedinIcon from '../assets/images/linkedin.png'
-import imesIcoreLogo from '../assets/images/Partner Logo Pics/imes-icore Logo.png'
-import exocadLogo from '../assets/images/Partner Logo Pics/Exocad Logo.webp'
-import dentaurumLogo from '../assets/images/Partner Logo Pics/dentaurum.png'
-import nobelBiocareLogo from '../assets/images/Partner Logo Pics/Nobel Biocare.png'
-import ivoclarLogo from '../assets/images/Partner Logo Pics/ivoclar .png'
-import w2pLogo from '../assets/images/Partner Logo Pics/w2p Logo.png'
-import vijaiDentalLogo from '../assets/images/Partner Logo Pics/Vijai Dental Logo.png'
-import graphenonoLogo from '../assets/images/Partner Logo Pics/Graphenono.png'
-import shining3dLogo from '../assets/images/Partner Logo Pics/Shining 3d Logo.png'
+import logoDark from '../assets/images/logos/logo_dark.webp'
+import logoWhite from '../assets/images/logos/logo_white.webp'
+
+import hero1 from '../assets/images/home/hero/CAM_System.png'
+import hero2 from '../assets/images/home/hero/Milling.png'
+import hero3 from '../assets/images/home/hero/Milling_ti_gr.png'
+
+import about_us from '../assets/images/home/about_us.png'
+
+
+import barIcon from '../assets/images/category_icons/Bar.png'
+import allOnXIcon from '../assets/images/category_icons/Full_arch_Prosthesis.png'
+import implantCrownsIcon from '../assets/images/category_icons/Implant_Crowns_and_Bridges.png'
+import guideIcon from '../assets/images/category_icons/Guide.png'
+import crownsBridgesIcon from '../assets/images/category_icons/Crowns.png'
+import veneersIcon from '../assets/images/category_icons/veneers.png'
+
+import imesIcoreLogo from '../assets/images/home/partner_logo_pics/imes-icore.png'
+import exocadLogo from '../assets/images/home/partner_logo_pics/Exocad.webp'
+import dentaurumLogo from '../assets/images/home/partner_logo_pics/dentaurum.png'
+import nobelBiocareLogo from '../assets/images/home/partner_logo_pics/Nobel_Biocare.png'
+import ivoclarLogo from '../assets/images/home/partner_logo_pics/ivoclar.png'
+import w2pLogo from '../assets/images/home/partner_logo_pics/w2p_Logo.png'
+import vijaiDentalLogo from '../assets/images/home/partner_logo_pics/Vijai_Dental_Logo.png'
+import graphenonoLogo from '../assets/images/home/partner_logo_pics/Graphenono.png'
+import shining3dLogo from '../assets/images/home/partner_logo_pics/Shining_3d.png'
 
 function HomePage() {
+
+    const scrollinto = (name)=>{
+        console.log("scrol")
+        const element = document.getElementById(name);
+        console.log(element)
+        element?.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' })
+    }
     return ( 
     <div>
         <section class="hero">
             <div class="hero_banner_carousel">
-                <div class="hero_banner_slide hero_banner_active" style={{ backgroundImage: `url(${millingTitanium})` }}>
+                <div class="hero_banner_slide hero_banner_active" style={{ backgroundImage: `url(${hero1})` }}>
                     <div class="hero_banner_content">
                         <div class="FIT_W FIT_H both_center">
                             <h1 class="hero_banner_title">Your Trusted Partner for Precision Dental Milling</h1>
                             <p class="hero_banner_subtitle">Where digital design meets flawless execution — every time.</p>
                             <div class="hero_banner_buttons">
-                                <button class="hero_banner_button hero_solution_button">All Solutions</button>
-                                <a style={{ textDecoration: 'none', color: 'black' }} href="/accugen_advantage"></a>
-                                <button class="hero_banner_button">MyACCUGEN</button>
+                                <button class="hero_banner_button hero_solution_button"
+                                    onClick={()=>{
+                                        scrollinto('solution_start')
+                                    }}
+                                >All Solutions</button>
+                                <a style={{ textDecoration: 'none', color: 'black' }} href="/MyACCUGEN">
+                                <button class="hero_banner_button">MyACCUGEN</button></a>
                             </div>
                         </div>
                     </div>
                 </div>
             
-                <div class="hero_banner_slide" style={{ backgroundImage: `url(${camSystem})` }}>
+                <div class="hero_banner_slide" style={{ backgroundImage: `url(${hero2})`, display:"none" }}>
                     <div class="hero_banner_content">
                         <div class="FIT_W FIT_H both_center">
                             <h1 class="hero_banner_title">Outsource Smarter. Deliver Better.</h1>
@@ -63,7 +75,7 @@ function HomePage() {
                     </div>
                 </div>
             
-                <div class="hero_banner_slide" style={{ backgroundImage: `url(${millingRoom})` }}>
+                <div class="hero_banner_slide" style={{ backgroundImage: `url(${hero3})`, display:"none"}}>
                     <div class="hero_banner_content">
                         <div class="FIT_W FIT_H both_center">
                             <h1 class="hero_banner_title">Precision. Speed. Perfection.</h1>
@@ -87,7 +99,7 @@ function HomePage() {
             </div>
             <div class="image-section">
                 <div class="image-wrapper">
-                    <img src={heroImage} alt="CREOZIR" class="main-image"/>
+                    <img src={about_us} alt="About Accugen" class="main-image"/>
                 </div>
             </div>
         </section>
@@ -103,9 +115,9 @@ function HomePage() {
             </div>
         </div>
 
-        <div class="solutions_card_home hori_center"> 
+        <div class="solutions_card_home hori_center" id='solution_start'> 
             <div class="cat_header">
-                <a style={{ textDecoration: 'none', color: 'black' }} href="/products">
+                <a style={{ textDecoration: 'none', color: 'black' }} href="/products/implant_solutions">
                     Implant solutions
                 </a>
             </div>
@@ -113,20 +125,20 @@ function HomePage() {
                 Explore complete implant solutions – from single units to full-arch restorations, including custom abutments and bars.
             </div><br/>
             <section class="services">
-                <a className="service-item-a" style={{ textDecoration: 'none', color: 'black' }} href="/products">
+                <a className="service-item-a" style={{ textDecoration: 'none', color: 'black' }} href="/products/implant_solutions">
                     <div class="service-item">
                         <img src={barIcon} alt="" className="hori_center"/>
                         <label>Frameworks</label>
                     </div>
                 </a>  
 
-                <a className="service-item-a" style={{ textDecoration: 'none', color: 'black' }} href="/products">
+                <a className="service-item-a" style={{ textDecoration: 'none', color: 'black' }} href="/products/implant_solutions">
                     <div class="service-item">
                         <img src={allOnXIcon} alt="" className="hori_center"/>
                         <label>All on X Screw-Retained Full Arch Prosthesis</label>
                     </div>
                 </a>
-                <a className="service-item-a" style={{ textDecoration: 'none', color: 'black' }} href="/products">
+                <a className="service-item-a" style={{ textDecoration: 'none', color: 'black' }} href="/products/implant_solutions">
                     <div class="service-item">
                         <img src={implantCrownsIcon} alt="" className="hori_center"/>
                         <label>Implant Crowns and Bridges</label>
@@ -143,7 +155,7 @@ function HomePage() {
 
         <div class="solutions_card_home hori_center"> 
             <div class="cat_header">
-                <a style={{ textDecoration: 'none', color: 'black' }} href="/products">
+                <a style={{ textDecoration: 'none', color: 'black' }} href="/products/tooth_supported">
                     Tooth-Suppported solutions
                 </a>
             </div>
@@ -151,14 +163,14 @@ function HomePage() {
                 Explore complete tooth-supported solutions – from crowns and bridges to veneers.
             </div>
             <section class="services">
-                <a className="service-item-a" style={{ textDecoration: 'none', color: 'black' }} href="./products_tooth.html">
+                <a className="service-item-a" style={{ textDecoration: 'none', color: 'black' }} href="/products/tooth_supported">
                     <div class="service-item">
                         <img src={crownsBridgesIcon} alt="" className="hori_center"/>
                         <label>Crown & Bridge</label>
                     </div>
                 </a>
 
-                <a className="service-item-a" style={{ textDecoration: 'none', color: 'black' }} href="./products_tooth.html">
+                <a className="service-item-a" style={{ textDecoration: 'none', color: 'black' }} href="/products/tooth_supported">
                     <div class="service-item">
                         <img src={veneersIcon} alt="" className="hori_center"/>
                         <label>Veneers</label>

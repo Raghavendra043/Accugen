@@ -208,7 +208,7 @@ function Order_form() {
                         <div>Email : {user.email}</div>
                         <br/>
                         <button
-                            onClick={()=>{navigate("/profile")}}
+                            onClick={()=>{navigate("/MyACCUGEN")}}
                         >View Order Details</button>
                     </div>
                 }

@@ -1,8 +1,8 @@
-import logoWhite from '../assets/images/logo_white.webp'
-import whatsapp from '../assets/images/whatsapp.png'
-import youtube from '../assets/images/youtube.png'
-import instagram from '../assets/images/instagram.png'
-import linkedin from '../assets/images/linkedin.png'
+import logoWhite from '../assets/images/logos/logo_white.webp'
+import whatsapp from '../assets/images/social/whatsapp.png'
+import youtube from '../assets/images/social/youtube.png'
+import instagram from '../assets/images/social/instagram.png'
+import linkedin from '../assets/images/social/linkedin.png'
 
 function Footer() {
     return ( 
@@ -21,10 +21,10 @@ function Footer() {
               Mobile : +91 7075488757<br/>
               </label>
               <div class="social-icons">
-                  <a href="#"><img src={whatsapp} alt="Instagram"/></a>
-                  <a href="#"><img src={instagram} alt="Facebook"/></a>
-                  <a href="#"><img src={youtube} alt="X"/></a>
-                  <a href="#"><img src={linkedin} alt="LinkedIn"/></a>
+                  <a href="https://api.whatsapp.com/send/?phone=917075488757&text=Hello+Accugen%21&type=phone_number&app_absent=0"><img src={whatsapp} alt="Instagram"/></a>
+                  <a href="https://www.instagram.com/accugendental"><img src={instagram} alt="Facebook"/></a>
+                  <a href="https://www.youtube.com/@accugendental"><img src={youtube} alt="X"/></a>
+                  <a href="https://www.linkedin.com/company/accugen-digital-dental-solutions/"><img src={linkedin} alt="LinkedIn"/></a>
                 </div>
         </div>
     
@@ -33,7 +33,7 @@ function Footer() {
         <div class="link-column">
           <h3>Quick links</h3>
           <a href="#">Solutions</a>
-          <a href="#">ACCUGEN Advantage</a>
+          <a href="/accugen_advantage">ACCUGEN Advantage</a>
           <a href="#">Contact us</a>
         </div>
   
