@@ -11,6 +11,7 @@ import Navbar from "./components/navbar";
 import Footer from "./components/footer";
 import Profile from "./components/profile";
 import Accgen_advantage from "./components/accugen_adv";
+import ApproveAccount from "./approve";
 
 const router = createBrowserRouter([
   {
@@ -70,6 +71,14 @@ const router = createBrowserRouter([
         element: (<>
           <Navbar/>
               <Accgen_advantage/>
+              <Footer/>
+            </>)
+      },
+      {
+        path: "/approveaccount/:data",
+        element: (<>
+          <Navbar/>
+              <ApproveAccount/>
               <Footer/>
             </>)
       },

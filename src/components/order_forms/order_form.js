@@ -8,6 +8,7 @@ import { AuthContext } from '../../Firebase/AuthProvider';
 import { addData, handleFireBaseUpload } from '../../Firebase/firestore';
 import { db } from '../../firebase';
 import { getDBCount } from '../../Firebase/firestoreGet';
+import { mailOrderTOCustomer } from '../../functions';
 
 
 function Order_form() {
@@ -15,6 +16,8 @@ function Order_form() {
     const {product} = useParams();
 
     const {user} = useContext(AuthContext)
+
+    const [error, setError] = useState()
 
     const [state, setState] = useState(0)
     const navigate = useNavigate()
@@ -71,17 +74,18 @@ function Order_form() {
 
         const date = new Date()
         const orderId = `AGN-${date.getDate()}${date.getMonth()}${date.getFullYear()}-${paddedNumber}`
-        const finalFiles = [...images, ...files]
+        const finalFiles = [...images, ...Array.from(files)]
         
         const urls = [];
-        // for(let i=0;i<finalFiles.length;i++){
-        //     const ref = `${user.email}/${orderId}`
-        //     const url = await handleFireBaseUpload(finalFiles[i].name, finalFiles[i], ref)
-        //     formData.files.push(url)
-        // }
+        for(let i=0;i<finalFiles.length;i++){
+            const ref = `${user.email}/${orderId}`
+            const url = await handleFireBaseUpload(finalFiles[i].name, finalFiles[i], ref)
+            formData.files.push(url)
+        }
         formData["id"] = orderId
         formData["email"] = user.email
         formData["created"] = (new Date()).toDateString()
+        formData["name"] = user.displayName
         
         
         formData["product"] = product
@@ -89,6 +93,9 @@ function Order_form() {
 
         await addData(col, orderId, formData)
         setLoad(false)
+
+        mailOrderTOCustomer({...formData}).then(()=>{})
+
         console.log(formData)
         setState(3)
     }
@@ -125,6 +132,8 @@ function Order_form() {
                     formData={formData} 
                     handleChange={handleChange}  
                     setImages={setImages}
+                    error = {error}
+                    setError = {setError}
                 />}
 
                 {/* /// */}

@@ -2,6 +2,8 @@ import firebase from '../firebase'
 import { getUser } from './auth'
 import 'firebase/compat/firestore';
 
+import { getCountFromServer } from "firebase/firestore";
+
 import { db } from '../firebase';
 
 
@@ -20,10 +22,10 @@ export const getData = async (Collectionref) => {
 
 export const getDBCount= async (collectionRef)=>{
     try{
-        const snapshot = await collectionRef.count().get();
-        return snapshot.data().count ? snapshot.data().count : 1;
+        const d = await getData(collectionRef)
+        return d.length;
     }catch(e){
-        
+        console.log(e)
     } 
 }
 

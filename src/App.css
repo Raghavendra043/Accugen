@@ -25,3 +25,14 @@
     transform: scale(0.75);
     top: 40%;
 }
+
+.approve_account{
+    width: 30vw;
+    min-height: 50vh;
+    margin-top: 50px;
+}
+
+.error{
+    color: red;
+    font-weight: 500;
+}
