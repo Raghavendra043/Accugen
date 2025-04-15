@@ -9,22 +9,23 @@ function Order_form_1({formData, handleChange,  setState, setImages, error, setE
     const {user} = useContext(AuthContext)
 
     const metadata = {
-        name: {type:"text", r:0},
-        refId: {type:"text", r:1},
-        case_type: {type:"text", r:1},
+        name: {type:"text", r:0, attr : "Patient Name"},
+        refId: {type:"text", r:1, attr : "Reference Id (only for your reference)"},
+        case_type: {type:"select", r:1, attr : "Case Type", values : [ "Upper Arch", "Lower Arch", "Both Arches"]},
 
-        implant_count : {type:"number", r:1},
-        implant_brand : {type:"text", r:1},
-        implant_dimensions : {type:"text", r:1},
-        implant_inter_distance : {type:"number", r:1},
-        angulation_details : {type:"text", r:0},
-        implant_system_label:{type:"file", r:1},
+        implant_count : {type:"number", r:1, attr : "Number of Implants"},
+        implant_brand : {type:"text", r:1, attr:"Implant Brand"},
+        implant_system : {type:"text", r:1, attr : "Implant System"},
+        implant_dimensions : {type:"text", r:1, attr : "Implant Dimensions"},
+        implant_inter_distance : {type:"number", r:1, attr : "Inter-Implant Distance (mm)"},
+        angulation_details : {type:"text", r:0, attr : "Angulation Details"},
+        implant_system_label:{type:"file", r:1, attr : "Implant System Label Image"},
 
-        gingival_clearance : {type:"text", r:0},
-        occlusal_clearence : {type:"text", r:0},
-        abutment_type : {type:"select", r:1},
+        gingival_clearance : {type:"text", r:0, attr : "Gingival Clearance (mm)"},
+        occlusal_clearence : {type:"text", r:0, attr : "Occlusal Clearance (mm)"},
+        abutment_type : {type:"select", r:1, attr : "Abutment Type", values:["Stock", "Multi-Unit Abutment", "Custom Abutment"]},
 
-        additional_options : {type : "multiple", r:0},
+        additional_options : {type : "multiple", r:0, attr : "", },
     }
     
     const checkMandatoryFeilds = ()=>{
@@ -49,7 +50,7 @@ function Order_form_1({formData, handleChange,  setState, setImages, error, setE
                             <>
                                 {(metadata[value].type === "text" || metadata[value].type === "number") ? 
                                     <div class="order_form_input_group">
-                                        <label for="clinic">{value} {metadata[value].r === 1 && <span className='error'>*</span>} </label>
+                                        <label for="clinic">{metadata[value].attr} {metadata[value].r === 1 && <span className='error'>*</span>} </label>
                                         <input
                                             type="text"
                                             name={value}
@@ -62,16 +63,22 @@ function Order_form_1({formData, handleChange,  setState, setImages, error, setE
                                     </div>
                                 : metadata[value].type === "select" ? 
                                     <div class="order_form_input_group">
-                                        <label for="clinic">{value} {metadata[value].r === 1 && <span className='error'>*</span>} </label>
+                                        <label for="clinic">{metadata[value].attr} {metadata[value].r === 1 && <span className='error'>*</span>} </label>
                                         <select className='order_form_dropdown'>
-                                            <option value = "stock" >Stock</option>
+                                            {metadata[value].values.map((valls, key)=>{
+                                                return(
+                                                    <option value = {valls.replce(" ", "_")} >{valls}</option>
+                                                 )
+                                            })
+                                            }
+                                            {/* <option value = "stock" >Stock</option>
                                             <option value = "multi_unit" >Multi-Unit Abutment</option>
-                                            <option value = "custom" >Custom Abutment</option>
+                                            <option value = "custom" >Custom Abutment</option> */}
                                         </select>
                                     </div>
                                 : metadata[value].type === "file" ? 
                                 <div class="order_form_input_group">
-                                    <label for="clinic">{value} {metadata[value].r === 1 && <span className='error'>*</span>} </label>
+                                    <label for="clinic">{metadata[value].attr} {metadata[value].r === 1 && <span className='error'>*</span>} </label>
                                 <label class="order_form_2_browseButton FIT_W" for="file-upload">
                                     Browse Files
                                     </label>
