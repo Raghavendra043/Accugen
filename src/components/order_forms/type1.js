@@ -42,7 +42,7 @@ function Order_form_1({formData, handleChange,  setState, setImages, error, setE
     return ( 
         <div class="order_form_section order_form_case_details">
             <form onSubmit="" className="authpage_form">
-                <div>Email : {user?.email}</div>
+                <div>Email : {user?.email}</div><br/>
 
                 {
                     Object.keys(metadata).map((value, key)=>{
@@ -54,7 +54,7 @@ function Order_form_1({formData, handleChange,  setState, setImages, error, setE
                                         <input
                                             type="text"
                                             name={value}
-                                            placeholder= {value}
+                                            
                                             value={formData[value]}
                                             onChange={handleChange}
                                             className="authpage_input"
@@ -67,7 +67,7 @@ function Order_form_1({formData, handleChange,  setState, setImages, error, setE
                                         <select className='order_form_dropdown'>
                                             {metadata[value].values.map((valls, key)=>{
                                                 return(
-                                                    <option value = {valls.replce(" ", "_")} >{valls}</option>
+                                                    <option value = {valls.replace(" ", "_")} >{valls}</option>
                                                  )
                                             })
                                             }
@@ -90,6 +90,7 @@ function Order_form_1({formData, handleChange,  setState, setImages, error, setE
                                         setImages((prev=>[...prev, e.target.files[0]]))
                                     }}
                                     />
+                                    <br/>
                                 </div>
                                     
                                 : <></>
@@ -116,7 +117,7 @@ function Order_form_1({formData, handleChange,  setState, setImages, error, setE
 
                 
             </form>
-            <br/>
+            
             {error && <div className='error hori_center FIT_W '> {error}</div>}
                 
         </div>
