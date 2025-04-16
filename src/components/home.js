@@ -44,7 +44,7 @@ function HomePage() {
     <div>
         <section class="hero">
             <div class="hero_banner_carousel">
-                <div class="hero_banner_slide hero_banner_active" style={{ backgroundImage: `url(${hero1})` }}>
+                <div class="hero_banner_slide hero_banner_active" style={{ backgroundImage: `url(${hero2})` }}>
                     <div class="hero_banner_content">
                         <div class="FIT_W FIT_H both_center">
                             <h1 class="hero_banner_title">Your Trusted Partner for Precision Dental Milling</h1>
