@@ -136,7 +136,7 @@ export default function AuthPage() {
                 placeholder="Email ID *"
                 value={formData.email}
                 onChange={handleChange}
-                className="authpage_input"
+                className="authpage_input1"
                 required
               />
               <input
@@ -145,7 +145,7 @@ export default function AuthPage() {
                 placeholder="Password *"
                 value={formData.password}
                 onChange={handleChange}
-                className="authpage_input"
+                className="authpage_input1"
                 required
               />
               <button type="submit" className="authpage_button"
@@ -191,7 +191,7 @@ export default function AuthPage() {
                 placeholder="Full Name *"
                 value={formData.name}
                 onChange={handleChange}
-                className="authpage_input"
+                className="authpage_input1"
                 required
               />
               <input
@@ -200,7 +200,7 @@ export default function AuthPage() {
                 placeholder="Email ID*"
                 value={formData.email}
                 onChange={handleChange}
-                className="authpage_input"
+                className="authpage_input1"
                 required
               />
               <input
@@ -209,7 +209,7 @@ export default function AuthPage() {
                 placeholder="Phone number*"
                 value={formData.phone}
                 onChange={handleChange}
-                className="authpage_input"
+                className="authpage_input1"
                 required
               />
               <div className="authpage_radio_group">
@@ -243,7 +243,7 @@ export default function AuthPage() {
                   placeholder={`${formData.organizationType} Name*`}
                   value={formData.organizationName}
                   onChange={handleChange}
-                  className="authpage_input"
+                  className="authpage_input1"
                   required
                 />
               
@@ -253,7 +253,7 @@ export default function AuthPage() {
                 placeholder="Password*"
                 value={formData.password}
                 onChange={handleChange}
-                className="authpage_input"
+                className="authpage_input1"
                 required
               />
               <input
@@ -265,7 +265,7 @@ export default function AuthPage() {
                   setPassre(e.target.value)
                 }}
                 style={(formData.password === password_re || !password_re || !password_re.length) ? {} : {border:"1px solid red"}}
-                className="authpage_input"
+                className="authpage_input1"
                 required
               />
               <button type="submit" className="authpage_button">Register</button>
@@ -298,7 +298,7 @@ export default function AuthPage() {
                 // value={formData.otp}
                 // onChange={handleChange}
                 onChange={(e)=>setOtpInp(e.target.value)}
-                className="authpage_input"
+                className="authpage_input1"
                 maxLength="6"
                 required
               />
