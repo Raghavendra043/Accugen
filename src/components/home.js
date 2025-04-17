@@ -12,6 +12,7 @@ import hero1 from '../assets/images/home/hero/CAM_System.png'
 import hero2 from '../assets/images/home/hero/Milling.png'
 import hero3 from '../assets/images/home/hero/Milling_ti_gr.png'
 import hero4 from '../assets/images/home/hero/650ipic.png'
+import hero5 from '../assets/images/home/hero/millingcloseup.png'
 
 import about_us from '../assets/images/home/about_us.png'
 
@@ -45,7 +46,7 @@ function HomePage() {
     <div>
         <section class="hero">
             <div class="hero_banner_carousel">
-                <div class="hero_banner_slide hero_banner_active" style={{ backgroundImage: `url(${hero4})` }}>
+                <div class="hero_banner_slide hero_banner_active" style={{ backgroundImage: `url(${hero5})` }}>
                     <div class="hero_banner_content">
                         <div class="FIT_W FIT_H both_center">
                             <h1 class="hero_banner_title">Your Trusted Partner for Precision Dental Milling</h1>
