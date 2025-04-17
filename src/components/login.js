@@ -62,9 +62,9 @@ export default function AuthPage() {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (screen === "register") {
-      if(formData.email.length > 0 && formData.password.length > 0 
+      if(formData.email.length > 0 && formData.password.length > 6
         && formData.name.length > 0 && formData.organizationName.length > 0
-        && formData.phone.length > 0 && password_re === formData.password
+        && formData.phone.length > 0 && password_re === formData.password 
       ){
         setScreen("otp");
         sentopt().then(()=>{
@@ -73,6 +73,8 @@ export default function AuthPage() {
       } else {
         if(password_re !== formData.password){
           setError("Passwords does not match");  
+        } else if(formData.password.length <6){
+          setError("Password must be min 6 characters");
         } else{
           setError("All fields are required");
         }

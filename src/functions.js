@@ -6,7 +6,7 @@ import axios from "axios";
 
 
 const backendURL = "https://accugen-backend-r76f.vercel.app";
-
+// const backendURL = "http://localhost:1337";
 // export const postOrder = async(setLoad, setState, Data, user)=>{
 //     try{
 //         let formData = {...Data}
@@ -93,6 +93,7 @@ export const approveAccount = async(email, pass, name)=>{
         return resp
     }catch(e){
         console.log(e)
+        return e;
     }
 }
 
@@ -109,6 +110,16 @@ export const verifyKey = async(key)=>{
 export const mailOrderTOCustomer = async(data)=>{
     try{
         const resp = await axios.post(`${backendURL}/sendMail`, data);
+        console.log(resp)
+        return resp.status === 200
+    }catch(e){
+        console.log(e)
+    }
+}
+
+export const AccountConfirmation = async(email, name)=>{
+    try{
+        const resp = await axios.post(`${backendURL}/accountConfirmation`, {email, name});
         console.log(resp)
         return resp.status === 200
     }catch(e){

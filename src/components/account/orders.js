@@ -3,79 +3,66 @@ import "./profile.css";
 import { FunnelIcon, PlusIcon, PencilIcon, EyeIcon, TrashIcon } from "lucide-react";
 import { getData, getDocOnCondition } from "../../Firebase/firestoreGet";
 import { db } from "../../firebase";
-import { Sampledata } from "../../assets/data";
+import { Sampledata, caseStatus, orderStatusMetadata } from "../../assets/data";
 
 
-const orders = [
-  {
-    id: "ORD-1001",
-    client: "Smith Dental",
-    type: "Titanium Bar",
-    units: 2,
-    status: "Milling",
-    planned: "Yes",
-    date: "13/04/2025"
-  },
-  {
-    id: "ORD-998",
-    client: "City Clinic",
-    type: "Zirconia Crown",
-    units: 5,
-    status: "CAD",
-    planned: "Yes",
-    date: "13/04/2025"
-  },
-  {
-    id: "ORD-985",
-    client: "Harbor Lab",
-    type: "Zirconia Bridge",
-    units: 1,
-    status: "Post-processing",
-    planned: "Yes",
-    date: "13/04/2025"
-  },
-  {
-    id: "ORD-975",
-    client: "Bayside Clinic",
-    type: "Zirconia Crown",
-    units: 3,
-    status: "Not yet started",
-    planned: "No",
-    date: "13/04/2025"
-  },
-  {
-    id: "ORD-965",
-    client: "Lakeside Dental",
-    type: "Titanium Bridge",
-    units: 1,
-    status: "Completed",
-    planned: "Yes",
-    date: "13/04/2025"
-  }
-];
+// const orders = [
+//   {
+//     id: "ORD-1001",
+//     client: "Smith Dental",
+//     type: "Titanium Bar",
+//     units: 2,
+//     status: "Milling",
+//     planned: "Yes",
+//     date: "13/04/2025"
+//   },
+//   {
+//     id: "ORD-998",
+//     client: "City Clinic",
+//     type: "Zirconia Crown",
+//     units: 5,
+//     status: "CAD",
+//     planned: "Yes",
+//     date: "13/04/2025"
+//   },
+//   {
+//     id: "ORD-985",
+//     client: "Harbor Lab",
+//     type: "Zirconia Bridge",
+//     units: 1,
+//     status: "Post-processing",
+//     planned: "Yes",
+//     date: "13/04/2025"
+//   },
+//   {
+//     id: "ORD-975",
+//     client: "Bayside Clinic",
+//     type: "Zirconia Crown",
+//     units: 3,
+//     status: "Not yet started",
+//     planned: "No",
+//     date: "13/04/2025"
+//   },
+//   {
+//     id: "ORD-965",
+//     client: "Lakeside Dental",
+//     type: "Titanium Bridge",
+//     units: 1,
+//     status: "Completed",
+//     planned: "Yes",
+//     date: "13/04/2025"
+//   }
+// ];
 
-const statusClassMap = {
-  Milling: "profile_status_milling",
-  CAD: "profile_status_cad",
-  "Post-processing": "profile_status_postprocessing",
-  "Not yet started": "profile_status_notyet",
-  Completed: "profile_status_completed"
-};
+
 
 
 export default function OrdersPage({orders, setOrders, user}) {
 
   useEffect(()=>{
-    if(user){
-      const coll = db.collection('orders')
-      getDocOnCondition(coll, "email", user.email).then((data)=>{
-        console.log(data)
-        setOrders(data)
-      }).catch((e)=>{
-        console.log(e)
-      })
-    }
-  }, [user])
+
+  }, [])
+  
   return (
     <div className="profile_container">
       <div className="profile_header">
@@ -119,8 +106,8 @@ export default function OrdersPage({orders, setOrders, user}) {
                 <td>{ Sampledata.find((val)=>val.code === order.product)["type"] === 1 ? "Implant Solution" : "Tooth Supported"}</td>
                 <td>{order.implant_count && order.implant_count.length ? order.implant_count : 1}</td>
                 <td>
-                  <span className={`profile_status ${statusClassMap["Milling"]}`}>
-                    Order Placed
+                  <span className={`profile_status`} style={{backgroundColor:orderStatusMetadata[caseStatus[order.status.status]].bg, color:orderStatusMetadata[caseStatus[order.status.status]].color}}>
+                    {orderStatusMetadata[caseStatus[order.status.status]].attr}
                   </span>
                 </td>
                 {/* <td>{order.planned}</td> */}

@@ -61,14 +61,6 @@ const router = createBrowserRouter([
             </>)
       },
       {
-        path: "/MyACCUGEN",
-        element: (<PrivateRoute>
-          <Navbar/>
-              <Profile/>
-              <Footer/>
-            </PrivateRoute>)
-      },
-      {
         path: "/accugen_advantage",
         element: (<>
           <Navbar/>
@@ -85,7 +77,7 @@ const router = createBrowserRouter([
             </>)
       },
       {
-        path: "/account/:type",
+        path: "/MyACCUGEN/:type?",
         element: (<PrivateRoute>
           <Navbar/>
               <Dashboard/>

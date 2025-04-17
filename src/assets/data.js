@@ -211,3 +211,21 @@ export const data = [
     
   ]
   
+export const caseStatus = {
+  0 : "order_placed",
+  1 : "order_confirmed",
+  2 : "in_design",
+  3 : "action_required",
+  4 : "in_milling", 
+  5 : "shipped",
+  100 : "completed",
+}
+export const orderStatusMetadata = {
+  order_placed : {attr : "Order Placed", color:"black", bg:"#eaeaea"},
+  order_confirmed : {attr : "Order Confirmed", color:"white", bg:"blue"},
+  in_design : {attr : "In Design", color:"white", bg:"orange"},
+  action_required : {attr : "Action required", color:"white", bg:"red"},
+  in_milling : {attr : "In Milling", color:"white", bg:"yellow"},
+  shipped : {attr : "Shipped", color:"white", bg:"brown"},
+  completed : {attr : "Completed", color:"white", bg:"green"},
+}

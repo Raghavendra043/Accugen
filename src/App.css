@@ -10,7 +10,7 @@
     font-weight: 500;
 }
 
-.f-loading{
+.f-loading, .f-loading1{
     width: 100%;
     height: 100%;
     /* background: transparent; */
@@ -20,16 +20,15 @@
     top:0;
     background-color: rgb(211, 211, 211, 0.5);
 }
-.f-loading img{
+.f-loading div{
     position: relative;
-    transform: scale(0.75);
     top: 40%;
+    text-align: center;
 }
 
 .approve_account{
-    width: 30vw;
+    width: 100%;
     min-height: 50vh;
-    margin-top: 50px;
 }
 
 .error{

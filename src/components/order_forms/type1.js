@@ -4,7 +4,7 @@ import { AuthContext } from '../../Firebase/AuthProvider';
 import { handleFireBaseUpload } from '../../Firebase/firestore';
 
 
-function Order_form_1({formData, handleChange,  setState, setImages, error, setError}) {
+function Order_form_1({formData, handleChange,  setState, setImages, error, setError, notify, images}) {
 
     const {user} = useContext(AuthContext)
 
@@ -29,21 +29,36 @@ function Order_form_1({formData, handleChange,  setState, setImages, error, setE
     }
     
     const checkMandatoryFeilds = ()=>{
+        let a = true;
         Object.keys(metadata).forEach((value)=>{
-            if(metadata[value].r && !formData[value].length){
-                setError("Fill the Required fields")
-                return false
+            if(!a || metadata[value].r === 0 || metadata[value].type === "file" ){return;}
+            if(!formData[value].length){
+                a = a & false;
+                console.log(value, formData)
             }  
-            console.log(formData[value].length)
         })
-        return true;
+        return a;
     }
 
     return ( 
         <div class="order_form_section order_form_case_details">
             <form onSubmit="" className="authpage_form">
-                <div>Email : {user?.email}</div><br/>
-
+                {(user.email === "gagan47.c@gmail.com" || user.email === "raghavendra074743@gmail.com") ? 
+                    <div class="order_form_input_group">
+                    <label for="clinic"> Email (leave the blank empty for default email)</label>
+                    <input
+                        type="text"
+                        name={"email"}
+                        placeholder={`${user.email}`}
+                        value={formData["email"]}
+                        onChange={handleChange}
+                        className="authpage_input"
+                    />
+                </div>
+                : <><div>Email : {user?.email}</div><br/></>
+                }
+                
+                
                 {
                     Object.keys(metadata).map((value, key)=>{
                         return(
@@ -64,10 +79,12 @@ function Order_form_1({formData, handleChange,  setState, setImages, error, setE
                                 : metadata[value].type === "select" ? 
                                     <div class="order_form_input_group">
                                         <label for="clinic">{metadata[value].attr} {metadata[value].r === 1 && <span className='error'>*</span>} </label>
-                                        <select className='order_form_dropdown'>
+                                        <select className='order_form_dropdown' name={value}
+                                            onChange={handleChange}
+                                        >
                                             {metadata[value].values.map((valls, key)=>{
                                                 return(
-                                                    <option value = {valls.replace(" ", "_")} >{valls}</option>
+                                                    <option value = {valls.replace(" ", "_")} selected={formData[value].replace(" ", "_") === valls.replace(" ", "_")} >{valls}</option>
                                                  )
                                             })
                                             }
@@ -82,11 +99,10 @@ function Order_form_1({formData, handleChange,  setState, setImages, error, setE
                                 <label class="order_form_2_browseButton FIT_W" for="file-upload">
                                     Browse Files
                                     </label>
+                                    {images && images.length && <label>{images[0].name}</label>}
                                     <input type='file' style={{display:'none'}} id='file-upload' multiple
                                     onChange={(e) => {
                                         console.log(e.target.files[0])
-                                        
-
                                         setImages((prev=>[...prev, e.target.files[0]]))
                                     }}
                                     />
@@ -107,9 +123,19 @@ function Order_form_1({formData, handleChange,  setState, setImages, error, setE
                     <button class="order_form_button hori_center" 
                     type='button'
                     onClick={()=>{
-                        
-                            setState(1);
-                            console.log(formData)
+
+                            if(checkMandatoryFeilds()){
+                                if(formData["email"] && !formData["email"].length){
+                                    handleChange({target:{name:"email", value:user.email}})
+                                }
+                                handleChange({target:{name:"implant_system_label", value:images[0].name}})
+                                setState(1);
+                                
+                                console.log(formData)
+                            } else {
+                                notify()
+                            }
+                            
                         
                     }}
                     >Continue to File Upload</button>

@@ -1,4 +1,5 @@
-function Order_summary({data, setState, handleChange, submitOrder}) {
+function Order_summary({data, setState, handleChange, submitOrder, address}) {
+    
     return ( 
         <div class="order_form_3_card">
         <h2 class="order_form_3_title">Review & Submit</h2>
@@ -8,34 +9,30 @@ function Order_summary({data, setState, handleChange, submitOrder}) {
 
         {data && Object.keys(data).map((value, key)=>{
             return(
-                <div class="order_form_3_summary_item">
-                    <span class="order_form_3_label">{value}</span>
-                    <span class="order_form_3_value">{data[value]}</span>
-                </div>
+                <>{
+                    value !="notes" &&
+                
+                
+                    <div class="order_form_3_summary_item">
+                        <span class="order_form_3_label">{value}</span>
+                        <span class="order_form_3_value">{data[value]}</span>
+                    </div>
+                    }
+                </>
             )
         })}
+        <br/>
+        <h3 class="order_form_3_section_title">Address</h3>
+        {["phone", "name", "address", "state", "city", "pincode"].map((vals, ks)=>{
+            return(<div class="order_form_3_summary_item">
+                <span class="order_form_3_label">{vals[0].toUpperCase() + vals.slice(1)}</span>
+                <span class="order_form_3_value">{address[vals]}</span>
+            </div>)
+        })
 
+        }
+    
         
-        {/* <div class="order_form_3_summary_item">
-            <span class="order_form_3_label">Patient/Case ID:</span>
-            <span class="order_form_3_value">-</span>
-        </div>
-        <div class="order_form_3_summary_item">
-            <span class="order_form_3_label">Product Type:</span>
-            <span class="order_form_3_value">Unknown</span>
-        </div>
-        <div class="order_form_3_summary_item">
-            <span class="order_form_3_label">Units:</span>
-            <span class="order_form_3_value">1</span>
-        </div>
-        <div class="order_form_3_summary_item">
-            <span class="order_form_3_label">Shade/Material:</span>
-            <span class="order_form_3_value">-</span>
-        </div>
-        <div class="order_form_3_summary_item">
-            <span class="order_form_3_label">Files:</span>
-            <span class="order_form_3_value">STOCK ITER 1.stl (0.6 MB)</span>
-        </div> */}
         </div>
 
         <div class="order_form_3_textarea_container">
@@ -57,7 +54,7 @@ function Order_summary({data, setState, handleChange, submitOrder}) {
         <div class="order_form_3_buttons">
         <button class="order_form_3_back_button"
             onClick={()=>{
-                setState(1);
+                setState(2);
             }}
         >Back</button>
         <button class="order_form_3_submit_button"

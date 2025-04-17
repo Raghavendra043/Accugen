@@ -1,6 +1,6 @@
 import { useNavigate, useParams } from 'react-router-dom';
 import './order_form.css'
-import { useContext, useEffect, useState } from 'react';
+import { createRef, useContext, useEffect, useState } from 'react';
 import { Sampledata } from '../../assets/data';
 import Order_form_1 from './type1';
 import Order_summary from './order_summary';
@@ -9,7 +9,13 @@ import { addData, handleFireBaseUpload } from '../../Firebase/firestore';
 import { db } from '../../firebase';
 import { getDBCount } from '../../Firebase/firestoreGet';
 import { mailOrderTOCustomer } from '../../functions';
-
+import Address_ind from '../checkout/address_ind';
+import {
+    GetState,
+  } from "react-country-state-city";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import File_Upload from './file_upload';
 
 function Order_form() {
 
@@ -26,6 +32,22 @@ function Order_form() {
 
     const [load, setLoad] = useState(false)
 
+    ////////////// address
+    const [address, setAddress] = useState()
+    const [country, setCounty] = useState( {"c":"India","id":101} );
+    const [stateList, setStateList] = useState([]);
+    const [cityList, setCityList] = useState([]);
+    const [stateid, setStateid] = useState(0);
+    const [cityid, setCityid] = useState(0);
+    const [inpts, setInputs] = useState([createRef(""), createRef(""), createRef(""), createRef(""), createRef("")])
+    
+    useEffect(() => {
+        GetState(country.id).then((result) => {
+            setStateList(result);
+        });
+    }, []);
+    //////////
+
     useEffect(()=>{
         setItem(Sampledata.find(e=> e.code === product))
     }, [product])
@@ -38,10 +60,11 @@ function Order_form() {
         name: "",
         refId: "",
         email : "",
-        case_type: "",
+        case_type: "Upper_Arch",
 
         implant_count : "",
         implant_brand : "",
+        implant_system : "",
         implant_dimensions : "",
         implant_inter_distance : "",
         angulation_details : "",
@@ -69,8 +92,8 @@ function Order_form() {
         // images, files
         const col = db.collection('orders')
         const num = await getDBCount(col)
-        console.log(num)
-        const paddedNumber = num ? num.toString().padStart(6, '0') : '000001';
+        console.log("step 1", num);
+        const paddedNumber = num ? (num+1).toString().padStart(6, '0') : '000001';
 
         const date = new Date()
         const orderId = `AGN-${date.getDate()}${date.getMonth()}${date.getFullYear()}-${paddedNumber}`
@@ -78,32 +101,63 @@ function Order_form() {
         
         const urls = [];
         for(let i=0;i<finalFiles.length;i++){
-            const ref = `${user.email}/${orderId}`
-            const url = await handleFireBaseUpload(finalFiles[i].name, finalFiles[i], ref)
-            formData.files.push(url)
+            if(finalFiles[i]){
+                const ref = `${user.email}/${orderId}`
+                const url = await handleFireBaseUpload(finalFiles[i].name, finalFiles[i], ref)
+                formData.files.push(url)
+            }
         }
+        console.log("file uplod done", num);
         formData["id"] = orderId
-        formData["email"] = user.email
-        formData["created"] = (new Date()).toDateString()
-        formData["name"] = user.displayName
         
+        formData["created"] = (new Date()).toDateString()
+        formData["status"] ={
+            status:0,
+            note:""
+        }
         
         formData["product"] = product
 
 
         await addData(col, orderId, formData)
+        console.log("Db done", num);
         setLoad(false)
 
         mailOrderTOCustomer({...formData}).then(()=>{})
 
         console.log(formData)
-        setState(3)
+        setState(4)
     }
 
+    const notify = () => toast.error("Please Enter all the Details", {
+            position: "bottom-center",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light"
+    });
     return ( 
 
         <div>
-            {load && (<div className='f-loading'>
+            <div>
+                    {/* <button onClick={notify}>Notify!</button> */}
+                    <ToastContainer
+                        position="bottom-center"
+                        autoClose={5000}
+                        hideProgressBar={false}
+                        newestOnTop={false}
+                        closeOnClick
+                        rtl={false}
+                        pauseOnFocusLoss
+                        draggable
+                        pauseOnHover
+                        theme="light"
+                    />
+            </div>
+            {(load) && (<div className='f-loading'>
                     <img alt src="https://d1fufvy4xao6k9.cloudfront.net/images/garment/loading.gif" onerror="this.src='https://d1fufvy4xao6k9.cloudfront.net/images/garment/loading.gif'" style={{transform:"scale(0.6)"}}/>
             </div>)}
             <div className='order_form_title hori_center'>
@@ -111,7 +165,7 @@ function Order_form() {
                 <p>  {item?.tag}  </p>
             </div>
             <div class="order_form_container">
-                {state!=3 && <div class="order_form_progress">
+                {state!=4 && <div class="order_form_progress">
                 <div class={ state ===0 ? "order_form_step order_form_step_active" :"order_form_step"}>
                     <div class="order_form_step_circle">1</div>
                     <span>Case Details</span>
@@ -122,6 +176,10 @@ function Order_form() {
                 </div>
                 <div class={ state ===2 ? "order_form_step order_form_step_active" : "order_form_step"}>
                     <div class="order_form_step_circle">3</div>
+                    <span>Select Address</span>
+                </div>
+                <div class={ state ===3 ? "order_form_step order_form_step_active" : "order_form_step"}>
+                    <div class="order_form_step_circle">4</div>
                     <span>Review & Submit</span>
                 </div>
                 </div>}
@@ -134,81 +192,93 @@ function Order_form() {
                     setImages={setImages}
                     error = {error}
                     setError = {setError}
+                    notify={notify}
+                    images = {images}
                 />}
 
                 {/* /// */}
 
                 {state ===1 && 
-            <div class="order_form_2_section">
-                <h2 class="order_form_2_title">Upload Files</h2>
-
-                <div class="order_form_2_infoBox">
-                <p class="order_form_2_infoText">
-                    <strong>Please upload your STL and design files below.</strong><br />
-                    Supported formats: STL, DCM, OBJ, PLY (Max size: 50MB per file)
-                </p>
-                </div>
-
-                <div class="order_form_2_uploadArea">
-                <div class="order_form_2_uploadIcon">☁️</div>
-                <p class="order_form_2_uploadText">Drag and drop files here</p>
-                <p class="order_form_2_orText">or</p>
-                <label class="order_form_2_browseButton" for="file-upload">
-                    Browse Files
-                    </label>
-                    <input type='file' style={{display:'none'}} id='file-upload' multiple
-                        onChange={(e)=>{
-                            setFiles(e.target.files)
-                            console.log(e.target.files)
-                        }}
+                    <File_Upload
+                        setState = {setState}
+                        setFiles = {setFiles}
+                        files = {files}
                     />
-                </div>
+                }   
 
-                {files && Array.from(files).map((val, key)=>{
-                    return(
-                    <div class="order_form_2_uploadedFile">
-                        <div class="order_form_2_fileIcon">📄</div>
-                        <div class="order_form_2_fileDetails">
-                            <span class="order_form_2_fileName">{val.name}</span>
-                            <span class="order_form_2_fileSize">0.6 MB</span>
-                        </div>
-                        <div class="order_form_2_fileStatus">Uploaded</div>
-                        
-                    </div>)
-                })}
+                {/* /// */}
 
-                <div class="order_form_2_buttons">
+                {state === 2 && 
+                    <div class="order_form_2_section">
+                <h2 class="order_form_2_title">Upload Files</h2>
+                        <Address_ind 
+                            country ={country}
+                            inpts = {inpts}
+                            stateList = {stateList}
+                            stateid = {stateid} 
+                            setStateid = {setStateid}
+                            cityList = {cityList} 
+                            cityid={cityid}
+                            setCityid = {setCityid} 
+                            setCityList = {setCityList}
+                            setAddress = {setAddress}
+                        />
+                        <div class="order_form_2_buttons">
                 <button class="order_form_2_backButton"
                     onClick={()=>{
-                        setState(0);
+                        
+                        setState(1);
                     }}
     
                 >Back</button>
                 <button class="order_form_2_continueButton"
                     onClick={()=>{
-                        setState(2);
+                        if( !inpts[0].current.value 
+                            || !inpts[1].current.value
+                            || !inpts[2].current.value
+                            || !inpts[3].current.value
+                            || !inpts[4].current.value
+                            || !cityid
+                            || !stateid
+                        ){
+                            console.log("Enter all the details")
+                            notify()
+                        } else {
+                            const Adds = {
+                                "name":inpts[0].current.value,
+                                "phone":inpts[1].current.value,
+                                "address":inpts[2].current.value +" , " + inpts[3].current.value,
+                                "state": stateList.find(o => o.id === stateid) ? stateList.find(o => o.id === stateid)["name"] : " ",
+                                "city": cityList.find(o => o.id === cityid) ? cityList.find(o => o.id === cityid)["name"] : " ",
+                                "pincode":inpts[4].current.value
+                            } 
+                            setAddress(Adds)
+                            setState(3);
+                        }
+                        
                     }}
                 >Continue to Review</button>
                 </div>
-            </div>
+                        </div>
                 }
 
-                {/* /// */}
 
-                {state ===2 && 
+                {state ===3 && 
                     <Order_summary
                         setState = {setState}
                         data = {formData}
                         handleChange = {handleChange}
                         submitOrder = {submitOrder}
+                        address = {address}
                     />
-
-            
                 }
                 {
-                    state ===3 && 
+                    state ===4 && 
                     <div className='order_done'>
                         {/* <img /> */}
+                        <div className='FIT_W hori_center'>   <svg class="checkmark" style={{margin:"0"}} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52"> <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none"/> <path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+                        </svg>
+                        </div>
                         <h2>Order Placed</h2>
                         <br/>
                         <div>Thank you for placing the order. You will receive a order confirmation to your email address shortly</div>
@@ -217,7 +287,7 @@ function Order_form() {
                         <div>Email : {user.email}</div>
                         <br/>
                         <button
-                            onClick={()=>{navigate("/MyACCUGEN")}}
+                            onClick={()=>{navigate(`/MyACCUGEN/order/${formData.id}`)}}
                         >View Order Details</button>
                     </div>
                 }

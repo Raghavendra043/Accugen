@@ -1,0 +1,73 @@
+
+
+.add-address{
+    text-align: left !important;
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+.a-a-r-1{
+    display: flex;
+    gap: 1vw;
+    width: 100%;
+    margin-bottom: 10px;
+}
+.a-a-i1, .a-a-i2, .a-a-i3{
+    width: 100%;
+    padding: 8px;
+
+    align-items: center;
+    border: none;
+    border: 1px solid #14213D46;
+    background: rgba(255, 255, 255, 0.12);
+}
+
+.input-wrap, .input-wrap1{
+    position: relative;
+    width: 100%;
+}
+.input-wrap1{
+    width: 50%;
+}
+.phone_n{
+    padding-left: 40px;
+}
+.p_code{
+    position: absolute !important;
+    opacity: 0.8;
+    margin: 0;
+    
+}
+.Billing_add{
+    margin-top: 20px;
+}
+
+.billing-address {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+/* .accordion {
+    border: 1px solid rgba(0, 0, 0, 0.374);   
+} */
+
+
+@media only screen and (min-width: 600px) and (max-width: 767px) {
+    .a-a-r-1{
+        flex-direction: column;
+    }
+    .a-a-i3, .a-a-i1, .a-a-i2 {
+        width: 65vw;
+    }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) and (max-width: 835px) {
+    .a-a-r-1{
+        flex-direction: column;
+    }
+    .a-a-i3, .a-a-i1, .a-a-i2 {
+        width: 50vw;
+    }
+}
+
+
