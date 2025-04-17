@@ -11,6 +11,8 @@ import logoWhite from '../assets/images/logos/logo_white.webp'
 import hero1 from '../assets/images/home/hero/CAM_System.png'
 import hero2 from '../assets/images/home/hero/Milling.png'
 import hero3 from '../assets/images/home/hero/Milling_ti_gr.png'
+import hero4 from '../assets/images/home/hero/650ipic.png'
+import hero5 from '../assets/images/home/hero/millingcloseup.png'
 
 import about_us from '../assets/images/home/about_us.png'
 
@@ -44,11 +46,11 @@ function HomePage() {
     <div>
         <section class="hero">
             <div class="hero_banner_carousel">
-                <div class="hero_banner_slide hero_banner_active" style={{ backgroundImage: `url(${hero3})` }}>
+                <div class="hero_banner_slide hero_banner_active" style={{ backgroundImage: `url(${hero5})` }}>
                     <div class="hero_banner_content">
                         <div class="FIT_W FIT_H both_center">
-                            <h1 class="hero_banner_title">Your Trusted Partner for Precision Dental Milling</h1>
-                            <p class="hero_banner_subtitle">Where digital design meets flawless execution — every time.</p>
+                            <h1 class="hero_banner_title">Where Precision Meets Possibility.</h1>
+                            <p class="hero_banner_subtitle">Advanced CAD/CAM dental restorations delivered with accuracy, speed, and trust.</p>
                             <div class="hero_banner_buttons">
                                 <button class="hero_banner_button hero_solution_button"
                                     onClick={()=>{
@@ -122,7 +124,7 @@ function HomePage() {
                 </a>
             </div>
             <div class="cat_des">
-                Explore complete implant solutions – from single units to full-arch restorations, including custom abutments and bars.
+                Explore complete implant solutions – from single units to full-arch restorations, including frameworks.
             </div><br/>
             <section class="services">
                 <a className="service-item-a" style={{ textDecoration: 'none', color: 'black' }} href="/products/implant_solutions">
