@@ -12,7 +12,7 @@ import hero1 from '../assets/images/home/hero/CAM_System.png'
 import hero2 from '../assets/images/home/hero/Milling.png'
 import hero3 from '../assets/images/home/hero/Milling_ti_gr.png'
 import hero4 from '../assets/images/home/hero/650ipic.png'
-import hero5 from '../assets/images/home/hero/millingcloseup.png'
+import hero5 from '../assets/images/home/hero/milling_closeup.png'
 
 import about_us from '../assets/images/home/about_us.png'
 
