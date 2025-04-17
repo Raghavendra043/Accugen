@@ -1,9 +1,10 @@
-import React, { useEffect } from "react";
+import React, { use, useEffect, useState } from "react";
 import "./profile.css";
 import { FunnelIcon, PlusIcon, PencilIcon, EyeIcon, TrashIcon } from "lucide-react";
 import { getData, getDocOnCondition } from "../../Firebase/firestoreGet";
 import { db } from "../../firebase";
 import { Sampledata, caseStatus, orderStatusMetadata } from "../../assets/data";
+import { useNavigate } from "react-router-dom";
 
 
 // const orders = [
@@ -57,31 +58,41 @@ import { Sampledata, caseStatus, orderStatusMetadata } from "../../assets/data";
 
 
 
-export default function OrdersPage({orders, setOrders, user}) {
+export default function OrdersPage({orders, setOrders, user, orderId}) {
+
+  const [Order, setOrder] = useState()
+  const navigate = useNavigate()
 
   useEffect(()=>{
-
-  }, [])
+    if(orderId && orders){
+      setOrder(orders.find((val)=>val.id === orderId))
+    }
+  }, [orderId, orders])
   
   return (
     <div className="profile_container">
       <div className="profile_header">
         <h1 className="profile_title">Orders</h1>
-        {/* <div className="profile_controls">
-          <input
+        {orderId && <h2>Order - {orderId}</h2>}
+
+
+        {!orderId && <div className="profile_controls">
+          {/* <input
             type="text"
             placeholder="Search orders..."
             className="profile_search"
           />
           <button className="profile_filter">
             <FunnelIcon className="profile_icon" /> All Status
-          </button>
-          <button className="profile_neworder">
+          </button> */}
+          <button className="profile_neworder"
+            onClick={()=>{navigate("/products/implant_solutions")}}
+          >
             <PlusIcon className="profile_icon" /> New Order
           </button>
-        </div> */}
+        </div>}
       </div>
-      {(orders && orders.length) ? <>
+      {(!orderId && orders && orders.length) && <>
       
 
       <div className="profile_table_wrapper">
@@ -100,7 +111,11 @@ export default function OrdersPage({orders, setOrders, user}) {
           </thead>
           <tbody>
             {orders.map((order) => (
-              <tr key={order.id}>
+              <tr key={order.id}
+                onClick={()=>{
+                  navigate(`/MyACCUGEN/orders/${order.id}`)
+                }}
+              >
                 <td>{order.id}</td>
                 <td>{ Sampledata.find((val)=>val.code === order.product)["title"] }</td>
                 <td>{ Sampledata.find((val)=>val.code === order.product)["type"] === 1 ? "Implant Solution" : "Tooth Supported"}</td>
@@ -117,7 +132,41 @@ export default function OrdersPage({orders, setOrders, user}) {
           </tbody>
         </table>
       </div>
-      </> : (<>No Orders yet</>)}
+      </>}
+
+      {(orderId && Order) &&
+        <div className="Order_detailed_view">
+          <table className="profile_table">
+            {Object.keys(Order).map((value, index)=>{
+              return(
+                <tr>
+                  <td style={{width:"30%"}}>{value.replaceAll("_", " ")[0].toUpperCase() + value.replaceAll("_", " ").slice(1)}</td>
+                  <td>
+                    { 
+                      value === "status" ? 
+                        <span className={`profile_status`} style={{backgroundColor:orderStatusMetadata[caseStatus[Order.status.status]].bg, color:orderStatusMetadata[caseStatus[Order.status.status]].color}}>
+                          {orderStatusMetadata[caseStatus[Order.status.status]].attr}
+                        </span> 
+                         : !Array.isArray(Order[value]) ? Order[value] 
+                         : "" }
+                  </td>
+              </tr>)
+            })}
+          </table>
+          <h2>Attachments</h2>
+          <div className="order_detail_attachment">
+            {Order.files.map((value)=>{
+              return(
+              <div className="order_detail_attachment_item" >
+                <label>{value.name}</label>                
+                <a href={value.src}><label>view/download</label></a>
+              </div>)
+            })
+            }
+          </div>
+        </div>  
+
+      }
     </div>
   );
 }

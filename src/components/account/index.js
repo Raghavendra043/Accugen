@@ -10,6 +10,7 @@ import { getDocOnCondition } from "../../Firebase/firestoreGet";
 function Dashboard() {
     const {user} = useContext(AuthContext)
     const {type} = useParams()
+    const {orderId} = useParams()
 
     const [orders, setOrders] = useState()
     useEffect(()=>{
@@ -36,6 +37,7 @@ function Dashboard() {
                     user={user}
                     orders={orders}
                     setOrders={setOrders}
+                    orderId = {orderId}
                 />
                 :  <Account_dash orders={orders} user = {user}/>
 

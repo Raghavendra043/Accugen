@@ -77,7 +77,7 @@ const router = createBrowserRouter([
             </>)
       },
       {
-        path: "/MyACCUGEN/:type?",
+        path: "/MyACCUGEN/:type?/:orderId?",
         element: (<PrivateRoute>
           <Navbar/>
               <Dashboard/>

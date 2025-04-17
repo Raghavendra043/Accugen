@@ -104,7 +104,11 @@ function Order_form() {
             if(finalFiles[i]){
                 const ref = `${user.email}/${orderId}`
                 const url = await handleFireBaseUpload(finalFiles[i].name, finalFiles[i], ref)
-                formData.files.push(url)
+                formData.files.push({
+                    name:finalFiles[i].name,
+                    src:url
+                }
+                )
             }
         }
         console.log("file uplod done", num);
