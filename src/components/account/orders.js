@@ -134,6 +134,10 @@ export default function OrdersPage({orders, setOrders, user, orderId}) {
       </div>
       </>}
 
+      {(!orderId && orders && !orders.length) && 
+          <>No orders yet</>
+      }
+
       {(orderId && Order) &&
         <div className="Order_detailed_view">
           <table className="profile_table">

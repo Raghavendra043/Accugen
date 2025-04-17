@@ -8,7 +8,7 @@ import acc from '../assets/images/social/acc.svg'
 
 function Navbar() {
 
-  const {user, running} = useContext( AuthContext )
+  const {user} = useContext( AuthContext )
     return ( 
         <div>
             <div class="top_bar">
@@ -27,7 +27,9 @@ function Navbar() {
             <li><a className='' href="/products/implant_solutions">SOLUTIONS</a></li>
             <li><a className='' href="/accugen_advantage">ACCUGEN™ ADVANTAGE</a></li>
             <li><a className='' href="#">CONTACT</a></li>
-            <li><a className='' href="/MyACCUGEN">PROFILE</a></li>
+            <li><a className='' href="/MyACCUGEN">
+              {user ? "PROFILE" : "LOGIN"}
+            </a></li>
             
           </ul>
         </nav>

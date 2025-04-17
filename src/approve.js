@@ -17,7 +17,7 @@ function ApproveAccount() {
 
     const [message, setMessage] = useState("Validating Request..")
 
-    const [load, setLoad] = useState(false)
+    const [load, setLoad] = useState(true)
 
     useEffect(()=>{
         if(!data){
@@ -58,7 +58,9 @@ function ApproveAccount() {
                 await addData(coll, data.email, {...data, ...{role}})
                 setMessage("Sending Confirmation email to user...")
                 await AccountConfirmation(data.email, data.name)
+                setMessage()
             }
+
             setLoad(false)
             return true
         } catch(e){
