@@ -124,7 +124,7 @@ function HomePage() {
                 </a>
             </div>
             <div class="cat_des">
-                Explore complete implant solutions – from single units to full-arch restorations, including custom abutments and bars.
+                Explore complete implant solutions – from single units to full-arch restorations, including frameworks.
             </div><br/>
             <section class="services">
                 <a className="service-item-a" style={{ textDecoration: 'none', color: 'black' }} href="/products/implant_solutions">
