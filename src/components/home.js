@@ -49,8 +49,8 @@ function HomePage() {
                 <div class="hero_banner_slide hero_banner_active" style={{ backgroundImage: `url(${hero5})` }}>
                     <div class="hero_banner_content">
                         <div class="FIT_W FIT_H both_center">
-                            <h1 class="hero_banner_title">Your Trusted Partner for Precision Dental Milling</h1>
-                            <p class="hero_banner_subtitle">Where digital design meets flawless execution — every time.</p>
+                            <h1 class="hero_banner_title">Where Precision Meets Possibility.</h1>
+                            <p class="hero_banner_subtitle">Advanced CAD/CAM dental restorations delivered with accuracy, speed, and trust.</p>
                             <div class="hero_banner_buttons">
                                 <button class="hero_banner_button hero_solution_button"
                                     onClick={()=>{
