@@ -12,6 +12,8 @@ import Footer from "./components/footer";
 import Profile from "./components/profile";
 import Accgen_advantage from "./components/accugen_adv";
 import ApproveAccount from "./approve";
+import OrdersPage from "./components/account/orders";
+import Dashboard from "./components/account";
 
 const router = createBrowserRouter([
   {
@@ -81,6 +83,14 @@ const router = createBrowserRouter([
               <ApproveAccount/>
               <Footer/>
             </>)
+      },
+      {
+        path: "/account/:type",
+        element: (<PrivateRoute>
+          <Navbar/>
+              <Dashboard/>
+              <Footer/>
+            </PrivateRoute>)
       },
     ]
   }

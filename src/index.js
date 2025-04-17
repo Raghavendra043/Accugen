@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from "react-dom/client";
 import { RouterProvider } from "react-router-dom";
 
-import router from './Route';
+import router from './Route.js';
 import AuthProvider from './Firebase/AuthProvider';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

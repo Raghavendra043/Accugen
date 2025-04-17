@@ -140,7 +140,7 @@ export default function AuthPage() {
                 required
               />
               <input
-                type="password"
+                type="text"
                 name="password"
                 placeholder="Password *"
                 value={formData.password}
@@ -156,8 +156,10 @@ export default function AuthPage() {
                     }
                     let a;
                     try{
+                      console.log(`%${formData.email}%`, `%${formData.password}%`)
                       a = await UserLogin(formData.email,formData.password);
                     }catch(e){
+                      console.log(e)
                       setError("Invalid Credentials")
                     }
                     

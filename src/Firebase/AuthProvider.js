@@ -35,7 +35,9 @@ const AuthProvider = ({ children }) => {
 
   const UserLogin = (email, password) => {
     setRunning(true);
-    return signInWithEmailAndPassword(auth, email, password);
+    const a = signInWithEmailAndPassword(auth, email, password);
+    console.log(a)
+    return a;
   };
 
   const userSignOut = () => {
