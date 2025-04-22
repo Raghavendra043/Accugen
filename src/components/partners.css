@@ -294,8 +294,10 @@
     .footer-links {
       flex-direction: column;
       text-align: left;
+      flex: unset;
       margin-top: 5px;
       width: 90%;
+      flex-direction: column;
     }
   
     .link-column {
