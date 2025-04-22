@@ -254,20 +254,7 @@
   }
   
   @media (max-width: 480px) {
-    .services {
-      gap: 15px;
-    }
-    .service-item {
-      width: 90px;
-      padding: 10px;
-      height: 100px;
-    }
-    .service-item img {
-      max-width: 50px;
-    }
-    .service-item h3 {
-      font-size: 14px;
-    }
+    
   }
   
 
@@ -333,81 +320,9 @@
   /* Media Queries */
   
   /* Small phones */
-  @media (max-width: 480px) {
-    .hero h1 {
-      font-size: 2rem;
-    }
-  
-    nav ul {
-      flex-direction: column;
-      background: white;
-      position: absolute;
-      top: 70px;
-      right: 0;
-      width: 200px;
-      display: none;
-    }
-  
-    nav ul.show {
-      display: flex;
-    }
-  
-    .burger {
-      display: flex;
-    }
-  }
-  
-  /* Large phones */
-  @media (min-width: 481px) and (max-width: 600px) {
-    .hero h1 {
-      font-size: 2.2rem;
-    }
-  
-    nav ul {
-      flex-direction: column;
-      background: white;
-      position: absolute;
-      top: 70px;
-      right: 0;
-      width: 200px;
-      display: none;
-    }
-  
-    nav ul.show {
-      display: flex;
-    }
-  
-    .burger {
-      display: flex;
-    }
-
-    .solutions_card_home{
-      width: 90vw;
-      padding: 15px;
-    }
-  }
-  
-  /* Tablets and small laptops */
-  @media (min-width: 601px) and (max-width: 960px) {
-    .hero h1 {
-      font-size: 2.5rem;
-    }
-  
-    .product-grid {
-      grid-template-columns: repeat(2, 1fr);
-    }
-  }
   
   /* Desktops */
-  @media (min-width: 961px) {
-    .hero h1 {
-      font-size: 3rem;
-    }
-  
-    .product-grid {
-      grid-template-columns: repeat(3, 1fr);
-    }
-  }
+
   
 
   .solutions_card_home{
@@ -441,3 +356,112 @@
     0% { top: 0; }
     100% { top: -7920px; } /* 80px * 99 numbers */
   }
+
+  @media (min-width: 961px) {
+    .hero h1 {
+      font-size: 3rem;
+    }
+  
+    .product-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  @media (min-width: 481px) and (max-width: 600px) {
+    .hero h1 {
+      font-size: 2.2rem;
+    }
+  
+    nav ul {
+      flex-direction: column;
+      background: white;
+      position: absolute;
+      top: 70px;
+      right: 0;
+      width: 200px;
+      display: none;
+    }
+  
+    nav ul.show {
+      display: flex;
+    }
+  
+    .burger {
+      display: flex;
+    }
+
+    .solutions_card_home{
+      width: 90vw;
+      padding: 15px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .hero h1 {
+      font-size: 2rem;
+    }
+  
+    nav ul {
+      flex-direction: column;
+      background: white;
+      position: absolute;
+      top: 70px;
+      right: 0;
+      width: 200px;
+      display: none;
+    }
+  
+    nav ul.show {
+      display: flex;
+    }
+  
+    .burger {
+      display: flex;
+    }
+    .solutions_card_home{
+      width: 90vw;
+      padding: 15px;
+    }
+    .service-item-a{
+     width: 32%; 
+     
+    }
+    .service-item label{
+      font-size: 0.7rem;
+    }
+    .services {
+      
+      padding: 10px 0px;
+    }
+
+    .services {
+      gap: 5px;
+    }
+    .service-item {
+      width: 100%;
+      padding: 10px;
+      height: 150px;
+      font-size: 0.8rem;
+    }
+    .service-item img {
+      max-width: 40px;
+    }
+    .service-item h3 {
+      font-size: 14px;
+    }
+  }
+  
+  /* Large phones */
+
+  
+  /* Tablets and small laptops */
+  @media (min-width: 601px) and (max-width: 960px) {
+    .hero h1 {
+      font-size: 2.5rem;
+    }
+  
+    .product-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
