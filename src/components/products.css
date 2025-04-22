@@ -156,5 +156,32 @@
     .product_a_main {
       flex: 1 1 100%;
     }
+
+    .product_banner{
+      min-height: 200px;
+      height: 20vh;
+    }
+
+    .product_banner div{
+      text-align: center;
+      font-size: 2rem;
+    }
+    .product_a_card{
+      width: 60%;
+      padding: 10px;
+    }
+    .product_a_grid{
+      gap: 10px;
+    }
+    .cat_title_sub{
+      margin-top: 40px !important;
+    }
+    .product_a_main_title{
+      font-size: 1.5rem;
+      margin-top: 10px !important;
+    }
+    .product_a_grid{
+      margin-bottom: 20px;
+    }
   }
   

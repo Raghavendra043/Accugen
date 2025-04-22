@@ -215,7 +215,7 @@
     gap: 20px;
   }
   .footer-left img{
-    width: 500px;
+    width: 100%;
   }
 
   .footer-left label{
@@ -325,6 +325,10 @@
     .footer-left label{
       font-size: 1rem;
       width: 70%;
+    }
+
+    .footer-left img{
+      width: 60%;
     }
     
   }

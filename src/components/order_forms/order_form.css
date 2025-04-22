@@ -463,6 +463,15 @@
     .order_form_3_buttons {
       flex-direction: column;
     }
+    .order_form_step span{
+      text-align: center;
+    }
+    .order_form_title {
+      width: 90%;
+      font-size: 0.8rem;
+      margin-bottom: 30px;
+    }
+
   }
   .order_done{
     text-align: center;

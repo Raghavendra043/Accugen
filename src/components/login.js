@@ -237,7 +237,7 @@ export default function AuthPage() {
                     onChange={handleRadioChange}
                     className="authpage_radio_input"
                   />
-                  Hospital
+                  Hospital/Clinic
                 </label>
               </div>
               

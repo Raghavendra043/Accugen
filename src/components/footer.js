@@ -1,4 +1,4 @@
-import logoWhite from '../assets/images/logos/logo_white.webp'
+import logoWhite from '../assets/images/logos/w_logo.png'
 import whatsapp from '../assets/images/social/whatsapp.png'
 import youtube from '../assets/images/social/youtube.png'
 import instagram from '../assets/images/social/instagram.png'

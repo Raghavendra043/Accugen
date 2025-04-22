@@ -208,6 +208,17 @@
     .spec_container {
         padding: 15px;
     }
+
+    .product_b_images{
+      width: 90%;
+    }
+
+    .product_b_info{
+      width: 90%;
+    }
+    .product_b_title{
+      font-size: 1.5rem;
+    }
 }
 
 

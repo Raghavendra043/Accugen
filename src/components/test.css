@@ -80,7 +80,9 @@
       font-size: 0.9rem;
     }
     .banner_a_home_left{
-      font-size: 2rem !important;
+      font-size: 3rem !important;
+      text-align: right !important;
+
     }
     .banner_a_home_right{
       font-size: 1rem !important;
