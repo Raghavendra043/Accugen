@@ -67,12 +67,13 @@ function Order_form_1({formData, handleChange,  setState, setImages, error, setE
                                     <div class="order_form_input_group">
                                         <label for="clinic">{metadata[value].attr} {metadata[value].r === 1 && <span className='error'>*</span>} </label>
                                         <input
-                                            type="text"
+                                            type={metadata[value].type}
                                             name={value}
                                             
                                             value={formData[value]}
                                             onChange={handleChange}
                                             className="authpage_input"
+                                            id = {value}
                                             required = {metadata[value].r === 1}
                                         />
                                     </div>

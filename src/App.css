@@ -35,3 +35,24 @@
     color: red;
     font-weight: 500;
 }
+
+.nav_container{
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+}
+
+.nav_container li {
+    padding: 0;
+}
+
+.nav-links{
+    margin-top: 15px;
+}
+
+.veri_center{
+    top : 50%;
+    position: relative;
+    transform: translateY(-50%);
+}
+

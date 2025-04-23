@@ -288,7 +288,7 @@ export default function AuthPage() {
             
             <h2 className="authpage_title">Verify Email</h2>
 
-            <div>6 digit OTP will be sent to your mail addres
+            <div>6 digit OTP will be sent to your mail address &nbsp;
               <b>{ formData.email }</b></div>
               <a style={{color:"blue"}}
                 type="button"

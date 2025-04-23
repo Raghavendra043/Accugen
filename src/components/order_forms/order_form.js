@@ -60,7 +60,7 @@ function Order_form() {
         name: "",
         refId: "",
         email : "",
-        case_type: "Upper_Arch",
+        case_type: "Upper Arch",
 
         implant_count : "",
         implant_brand : "",
@@ -72,7 +72,7 @@ function Order_form() {
 
         gingival_clearance : "",
         occlusal_clearence : "",
-        abutment_type : "",
+        abutment_type : "Stock",
 
         additional_options : [],
 

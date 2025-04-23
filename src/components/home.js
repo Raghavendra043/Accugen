@@ -33,6 +33,7 @@ import w2pLogo from '../assets/images/home/partner_logo_pics/w2p_Logo.png'
 import vijaiDentalLogo from '../assets/images/home/partner_logo_pics/Vijai_Dental_Logo.png'
 import graphenonoLogo from '../assets/images/home/partner_logo_pics/Graphenono.png'
 import shining3dLogo from '../assets/images/home/partner_logo_pics/Shining_3d.png'
+import { useEffect, useState } from 'react'
 
 function HomePage() {
 
@@ -42,15 +43,38 @@ function HomePage() {
         console.log(element)
         element?.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' })
     }
+    const [active, setActive] = useState(0)
+
+    const arr = [
+        {
+            "title" : "Where Precision Meets Possibility. ",
+            "sub":"Advanced CAD/CAM dental restorations delivered with accuracy, speed, and trust.",
+            "img":hero5
+        },
+        {
+            "title" : "Outsource Smarter. Deliver Better.",
+            "sub":"Partner with Accugen to scale your lab or clinic with top-tier prosthetics",
+            "img":hero4
+        },
+        {
+            "title" : "Precision. Speed. Perfection.",
+            "sub":"Transforming digital dentistry with cutting-edge milling and 3D printing.",
+            "img":hero3
+        },
+        
+    ]
+    useEffect(()=>{
+        setTimeout(() => setActive(active === 2 ? 0 : active + 1), 3000);
+    }, [active])
     return ( 
     <div>
         <section class="hero">
             <div class="hero_banner_carousel">
-                <div class="hero_banner_slide hero_banner_active" style={{ backgroundImage: `url(${hero5})` }}>
+                <div class="hero_banner_slide hero_banner_active" style={{ backgroundImage: `url(${arr[active].img})` }}>
                     <div class="hero_banner_content">
                         <div class="FIT_W FIT_H both_center">
-                            <h1 class="hero_banner_title">Where Precision Meets Possibility.</h1>
-                            <p class="hero_banner_subtitle">Advanced CAD/CAM dental restorations delivered with accuracy, speed, and trust.</p>
+                            <h1 class="hero_banner_title">{arr[active].title}</h1>
+                            <p class="hero_banner_subtitle">{arr[active].sub }</p>
                             <div class="hero_banner_buttons">
                                 <button class="hero_banner_button hero_solution_button"
                                     onClick={()=>{
@@ -59,32 +83,6 @@ function HomePage() {
                                 >All Solutions</button>
                                 <a style={{ textDecoration: 'none', color: 'black' }} href="/MyACCUGEN">
                                 <button class="hero_banner_button">MyACCUGEN</button></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            
-                <div class="hero_banner_slide" style={{ backgroundImage: `url(${hero2})`, display:"none" }}>
-                    <div class="hero_banner_content">
-                        <div class="FIT_W FIT_H both_center">
-                            <h1 class="hero_banner_title">Outsource Smarter. Deliver Better.</h1>
-                            <p class="hero_banner_subtitle">Partner with Accugen to scale your lab or clinic with top-tier prosthetics</p>
-                            <div class="hero_banner_buttons">
-                                <button class="hero_banner_button hero_solution_button">All Solutions</button>
-                                <button class="hero_banner_button">MyACCUGEN</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            
-                <div class="hero_banner_slide" style={{ backgroundImage: `url(${hero3})`, display:"none"}}>
-                    <div class="hero_banner_content">
-                        <div class="FIT_W FIT_H both_center">
-                            <h1 class="hero_banner_title">Precision. Speed. Perfection.</h1>
-                            <p class="hero_banner_subtitle">Transforming digital dentistry with cutting-edge milling and 3D printing.</p>
-                            <div class="hero_banner_buttons">
-                                <button class="hero_banner_button">All Solutions</button>
-                                <button class="hero_banner_button">MyACCUGEN</button>
                             </div>
                         </div>
                     </div>

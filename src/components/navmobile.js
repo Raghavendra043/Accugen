@@ -1,6 +1,11 @@
 import './login.css'
 
-function Navnobile({user}) {
+import logoDark from '../assets/images/logos/logo_dark.webp'
+import acc from '../assets/images/social/acc.svg'
+import close from '../assets/images/social/close.png'
+import { useState } from 'react'
+
+function Navnobile({user, setOpen}) {
 
     const items = [
         {
@@ -17,10 +22,15 @@ function Navnobile({user}) {
         },
         
     ]
+
     return ( 
     <div className="nav_mobile">
 
-        <div className="nav_mob_items">
+        <img src={close} style={{"height":"30px", "width":"30px", position:"absolute", top:"10px", right:"10px"}}
+            onClick={()=>{setOpen(false)}}
+        />
+        <img src={logoDark}/>
+        <div className="nav_mob_items hori_center">
             {items.map((val, key)=>{
                 return(
                     <div className="nav_mob_item">{val.attr}</div>
@@ -31,7 +41,12 @@ function Navnobile({user}) {
         </div>
 
         <div className="nav_mob_bottom">
-            Login
+            <img src={acc} className=''/>
+            <div>
+                <label className='FIT_H verti_center'>
+                    {user ? user.email : "Login"}
+                </label>
+            </div>
         </div>
     
     </div> );
