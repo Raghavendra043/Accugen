@@ -229,3 +229,66 @@ export const orderStatusMetadata = {
   shipped : {attr : "Shipped", color:"white", bg:"brown"},
   completed : {attr : "Completed", color:"white", bg:"green"},
 }
+
+export const products = {
+  "FA-MB-RTI-001" : "type1",
+  "FA-MB-RTI-002" : "type1",
+  "FA-SR-ZT-CMZ-RT": "type1",
+  "FA-SR-AZ-CMZ": "type1",
+  "IC-ZR-CMZ": "type1",
+  "CB-ZR-CMZ": "type1",
+  "V-IPS": "type1",
+  "CB-ZR-CMZ" : "type1"
+}
+
+export const OrderForms = {
+
+  type1 : {
+    formData : {
+      name: "",
+      refId: "",
+      email : "",
+      case_type: "Upper Arch",
+  
+      implant_count : "",
+      implant_brand : "",
+      implant_system : "",
+      implant_dimensions : "",
+      implant_inter_distance : "",
+      angulation_details : "",
+      implant_system_label:"",
+  
+      gingival_clearance : "",
+      occlusal_clearence : "",
+      abutment_type : "Stock",
+  
+      additional_options : [],
+  
+      notes : "",
+  
+      files : []
+    },
+    metaData : {
+      name: {type:"text", r:0, attr : "Patient Name"},
+      refId: {type:"text", r:1, attr : "Reference Id (only for your reference)"},
+      case_type: {type:"select", r:1, attr : "Case Type", values : [ "Upper Arch", "Lower Arch", "Both Arches"]},
+
+      implant_count : {type:"number", r:1, attr : "Number of Implants"},
+      implant_brand : {type:"text", r:1, attr:"Implant Brand"},
+      implant_system : {type:"text", r:1, attr : "Implant System"},
+      implant_dimensions : {type:"text", r:1, attr : "Implant Dimensions"},
+      implant_inter_distance : {type:"number", r:1, attr : "Inter-Implant Distance (mm)"},
+      angulation_details : {type:"text", r:0, attr : "Angulation Details"},
+      implant_system_label:{type:"file", r:1, attr : "Implant System Label Image"},
+
+      gingival_clearance : {type:"text", r:0, attr : "Gingival Clearance (mm)"},
+      occlusal_clearence : {type:"text", r:0, attr : "Occlusal Clearance (mm)"},
+      abutment_type : {type:"select", r:1, attr : "Abutment Type", values:["Stock", "Multi-Unit Abutment", "Custom Abutment"]},
+
+      additional_options : {type : "multiple", r:0, attr : "", },
+    }
+  },
+
+  type2 : {},
+
+}

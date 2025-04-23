@@ -25,6 +25,9 @@
   flex: 1;
   font-size: 14px;
 }
+.order_form_step span{
+  text-align: center;
+}
 .order_form_step_circle {
   width: 24px;
   height: 24px;
@@ -61,6 +64,7 @@
   padding: 10px;
   border-radius: 4px;
   border: 1px solid #ccc;
+  font-size: 1rem;
 }
 .order_form_file_drop {
   border: 2px dashed #ccc;
@@ -95,6 +99,14 @@
   font-size: 12px;
   color: #999;
   margin-top: 30px;
+}
+
+.radio_group label{
+  margin-right: 30px;
+  margin-left: 10px;
+}
+.radio_group{
+  margin-bottom: 20px;
 }
 @media (max-width: 500px) {
   .order_form_button_group {
@@ -151,13 +163,33 @@
   }
   
   .order_form_2_section {
+    text-align: left;
+  }
+
+  .order_form_2_infoBox, .order_form_2_uploadArea{
     text-align: center;
   }
   
-  .order_form_2_title {
-    font-size: 1.8rem;
+  .order_form_2_title, .order_form_2_title1 {
+    font-size: 1.3rem;
     margin-bottom: 1rem;
+    font-weight: 800;
     color: #333;
+  }
+  .order_form_2_title{
+    display: flex;
+    width: 100%;
+  }
+  .order_form_2_title div{
+    padding: 5px;
+    font-weight: 800;
+    width: 50%;
+    text-align: center;
+    border-radius: 30px;
+    
+  }
+  .active_order_form_tirle {
+    background-color: #d9d9d9;
   }
   
   .order_form_2_infoBox {
@@ -166,7 +198,14 @@
     border-radius: 8px;
     margin-bottom: 2rem;
   }
-  
+  .order_form_page1_shipping{
+    width: 90%;
+    margin-bottom: 30px;
+  }
+  .order_form_2_infoText{
+    width: 90%;
+    text-align: left;
+  }
   .order_form_2_infoText {
     font-size: 0.95rem;
     color: #666;

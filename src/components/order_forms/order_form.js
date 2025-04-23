@@ -25,6 +25,8 @@ function Order_form() {
 
     const [error, setError] = useState()
 
+    const [orderId, setOrderId] = useState()
+
     const [state, setState] = useState(0)
     const navigate = useNavigate()
 
@@ -45,8 +47,21 @@ function Order_form() {
         GetState(country.id).then((result) => {
             setStateList(result);
         });
+        setOrderID().then(()=>{
+        })
+        
     }, []);
     //////////
+    const setOrderID = async()=>{
+        const col = db.collection('orders')
+        const num = await getDBCount(col)
+        console.log("step 1", num);
+        const paddedNumber = num ? (num+1).toString().padStart(6, '0') : '000001';
+
+        const date = new Date()
+        const orderId = `AGN-${date.getDate()}${date.getMonth()}${date.getFullYear()}-${paddedNumber}`
+        setOrderId(orderId)
+    }
 
     useEffect(()=>{
         setItem(Sampledata.find(e=> e.code === product))
@@ -56,62 +71,68 @@ function Order_form() {
 
     const [files, setFiles] = useState()
 
+    const [formCheck, setFormCheck] = useState(true);
+
     const [formData, setFormData] = useState({
         name: "",
         refId: "",
-        email : "",
-        case_type: "Upper Arch",
+        email : user.email,
+        file_type : "stl",
+        upload_type : "file_upload",
+        notes : "",
+        files : [],
 
+        case_type: "Upper Arch",
         implant_count : "",
         implant_brand : "",
         implant_system : "",
-        implant_dimensions : "",
+        implant_dimensions_height : "",
+        implant_dimensions_diameter : "",
         implant_inter_distance : "",
         angulation_details : "",
         implant_system_label:"",
-
-        gingival_clearance : "",
-        occlusal_clearence : "",
-        abutment_type : "Stock",
-
-        additional_options : [],
-
-        notes : "",
-
-        files : []
+        abutment_type : "",
+        additional_options : "",
+        quantity : ""
     });
+
+    const metadata = {
+        name: {type:"text", r:0, attr : "Patient Name" , page : 0},
+        refId: {type:"text", r:1, attr : "Reference Id (only for your reference)" , page : 0},
+        case_type: {type:"select", r:1, attr : "Select Arch", values : [ "Upper Arch", "Lower Arch", "Both Arches"]},
+        implant_count : {type:"number", r:1, attr : "Number of Implants"},
+        implant_brand : {type:"text", r:1, attr:"Implant Brand"},
+        implant_system : {type:"text", r:1, attr : "Implant System"},
+        implant_dimensions_height : {type:"number", r:1, attr : "Implant Dimensions - Height (mm)"},
+        implant_dimensions_diameter : {type:"number", r:1, attr : "Implant Dimensions - Diameter (mm)"},
+        implant_inter_distance : {type:"number", r:0, attr : "Inter-Implant Distance (mm)"},
+        angulation_details : {type:"text", r:0, attr : "Angulation Details"},
+        implant_system_label:{type:"file", r:1, attr : "Implant System Label Image"},
+        abutment_type : {type:"text", r:1, attr : "MUA (Multi-Unit Abutment) Used"},
+        additional_options : {type : "multiple", r:0, attr : "Additional Options"},
+        quantity : {type : "number", r:0, attr : "Quantity", },
+    }
 
     const handleChange = (e) => {
         const { name, value } = e.target;
         setFormData((prev) => ({ ...prev, [name]: value }));
+        setFormCheck(false)
     };
 
     const submitOrder = async ()=>{
 
         setLoad(true)
-        // images, files
         const col = db.collection('orders')
-        const num = await getDBCount(col)
-        console.log("step 1", num);
-        const paddedNumber = num ? (num+1).toString().padStart(6, '0') : '000001';
-
-        const date = new Date()
-        const orderId = `AGN-${date.getDate()}${date.getMonth()}${date.getFullYear()}-${paddedNumber}`
-        const finalFiles = [...images, ...Array.from(files)]
-        
-        const urls = [];
-        for(let i=0;i<finalFiles.length;i++){
-            if(finalFiles[i]){
-                const ref = `${user.email}/${orderId}`
-                const url = await handleFireBaseUpload(finalFiles[i].name, finalFiles[i], ref)
-                formData.files.push({
-                    name:finalFiles[i].name,
-                    src:url
-                }
-                )
-            }
+        // images, files
+        const finalFiles = [...images]
+        const ref = `${user.email}/${orderId}`
+        const url = await handleFireBaseUpload(finalFiles[0].name, finalFiles[0], ref)
+        formData.files.push({
+            name:finalFiles[0].name,
+            src:url
         }
-        console.log("file uplod done", num);
+        )
+        
         formData["id"] = orderId
         
         formData["created"] = (new Date()).toDateString()
@@ -124,7 +145,6 @@ function Order_form() {
 
 
         await addData(col, orderId, formData)
-        console.log("Db done", num);
         setLoad(false)
 
         mailOrderTOCustomer({...formData}).then(()=>{})
@@ -133,7 +153,7 @@ function Order_form() {
         setState(4)
     }
 
-    const notify = () => toast.error("Please Enter all the Details", {
+    const notify = (message = "Please Enter all the Details") => toast.error(message, {
             position: "bottom-center",
             autoClose: 5000,
             hideProgressBar: false,
@@ -172,11 +192,11 @@ function Order_form() {
                 {state!=4 && <div class="order_form_progress">
                 <div class={ state ===0 ? "order_form_step order_form_step_active" :"order_form_step"}>
                     <div class="order_form_step_circle">1</div>
-                    <span>Case Details</span>
+                    <span>Case Details & <br/> File Upload</span>
                 </div>
                 <div class={ state ===1 ? "order_form_step order_form_step_active" : "order_form_step" }>
                     <div class="order_form_step_circle">2</div>
-                    <span>File Upload</span>
+                    <span>Implant Details</span>
                 </div>
                 <div class={ state ===2 ? "order_form_step order_form_step_active" : "order_form_step"}>
                     <div class="order_form_step_circle">3</div>
@@ -189,7 +209,24 @@ function Order_form() {
                 </div>}
 
                 {state ===0 && 
-                <Order_form_1
+                <File_Upload
+                    setState = {setState}
+                    setFiles = {setFiles}
+                    files = {files}
+                    metadata ={metadata}
+                    formData={formData}
+                    handleChange={handleChange}
+                    user = {user}
+                    setFormData = {setFormData}
+                    notify = {notify}
+                    orderId={orderId}
+                />
+                }
+
+                {/* /// */}
+
+                {state ===1 && 
+                    <Order_form_1
                     setState={setState}
                     formData={formData} 
                     handleChange={handleChange}  
@@ -198,23 +235,16 @@ function Order_form() {
                     setError = {setError}
                     notify={notify}
                     images = {images}
-                />}
-
-                {/* /// */}
-
-                {state ===1 && 
-                    <File_Upload
-                        setState = {setState}
-                        setFiles = {setFiles}
-                        files = {files}
-                    />
+                    setFormCheck = {setFormCheck}
+                    metadata ={metadata}
+                />
                 }   
 
                 {/* /// */}
 
                 {state === 2 && 
                     <div class="order_form_2_section">
-                <h2 class="order_form_2_title">Upload Files</h2>
+                <h2 class="order_form_2_title1 FIT_W hori_center">Select Address</h2>
                         <Address_ind 
                             country ={country}
                             inpts = {inpts}
@@ -274,6 +304,7 @@ function Order_form() {
                         handleChange = {handleChange}
                         submitOrder = {submitOrder}
                         address = {address}
+                        metadata ={metadata}
                     />
                 }
                 {
@@ -288,7 +319,7 @@ function Order_form() {
                         <div>Thank you for placing the order. You will receive a order confirmation to your email address shortly</div>
                         <br/>
                         <div> Order ID : {formData.id}</div>
-                        <div>Email : {user.email}</div>
+                        <div>Email : { formData.email}</div>
                         <br/>
                         <button
                             onClick={()=>{navigate(`/MyACCUGEN/order/${formData.id}`)}}

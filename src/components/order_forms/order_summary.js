@@ -1,4 +1,4 @@
-function Order_summary({data, setState, handleChange, submitOrder, address}) {
+function Order_summary({data, setState, handleChange, submitOrder, address, metadata}) {
     
     return ( 
         <div class="order_form_3_card">
@@ -14,7 +14,7 @@ function Order_summary({data, setState, handleChange, submitOrder, address}) {
                 
                 
                     <div class="order_form_3_summary_item">
-                        <span class="order_form_3_label">{value}</span>
+                        <span class="order_form_3_label">{metadata[value] ? metadata[value].attr : value.replaceAll("_", " ")}</span>
                         <span class="order_form_3_value">{data[value]}</span>
                     </div>
                     }
