@@ -1,0 +1,84 @@
+/* AccountSection.css */
+.account_info_container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 2rem;
+    background-color: #f9f9f9;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+  }
+  
+  .account_info_heading {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    color: #333;
+    text-align: center;
+  }
+  
+  .account_info_group {
+    margin-bottom: 1rem;
+  }
+  
+  .account_info_label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: #444;
+  }
+  
+  .account_info_input {
+    width: 100%;
+    padding: 0.6rem 1rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+    background-color: #fff;
+  }
+  
+  .account_info_address_section {
+    margin-top: 2rem;
+  }
+  
+  .account_info_subheading {
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+    color: #222;
+  }
+  
+  .account_info_add_btn {
+    margin-top: 1rem;
+    padding: 0.6rem 1.2rem;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+  }
+  
+  .account_info_add_btn:hover {
+    background-color: #0056b3;
+  }
+  
+  /* // */
+
+  .modal_container{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.5);;
+  } 
+
+  .modal_profile{
+    padding: 30px;
+    position: fixed;
+    width: 30vw;
+    background-color: white;
+    backdrop-filter: brightness(10%);
+    z-index: 100;
+    top : 35vh;
+  }
+

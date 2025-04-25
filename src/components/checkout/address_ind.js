@@ -8,7 +8,7 @@ import {
 
 
 
-function Address_ind({country, inpts, stateList, stateid, setStateid,cityList,cityid, setCityid, setCityList, setAddress}) {
+function Address_ind({country, inpts, stateList, stateid, setStateid,cityList,cityid, setCityid, setCityList, setAddress, address_all}) {
 
     
 
@@ -103,6 +103,31 @@ function Address_ind({country, inpts, stateList, stateid, setStateid,cityList,ci
             /></div>
         </div>
         
+        <h2 className='hori_center FIT_W'> Or </h2><br/>
+        <h2 className='hori_center FIT_W'> Select from Saved Addresses </h2>
+        <div className='address_list'>
+                    
+        {address_all && address_all.map((value, key)=>{
+            return(
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value={key}
+                        onChange={(e)=>{
+                            // selectAddress(address[e.target.value])
+                            setAddress( address_all[e.target.value] )
+                            
+                            // setData({...data,... {"address":address[e.target.value]}})
+                            // console.log("checked :", e.target.value, address[e.target.value])
+                        }}
+                    />
+                    <div class="form-check-label" for="exampleRadios1">
+                        {value.name} | {value["address"]}, {value["state"]}, {value["city"]},{value["pincode"]}, {value["phone"]}
+                    </div>
+                </div>
+            )
+        })
+
+        }
+        </div>
         {/* { type === 0 && <div className='hori_center' style={{"width":"fit-content", "marginTop":"30px", "display":"flex"}}>
             <button className='Butt1' style={{"marginRight":"10px"}} 
                 onClick={async()=>{

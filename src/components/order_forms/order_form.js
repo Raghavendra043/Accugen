@@ -7,8 +7,8 @@ import Order_summary from './order_summary';
 import { AuthContext } from '../../Firebase/AuthProvider';
 import { addData, handleFireBaseUpload } from '../../Firebase/firestore';
 import { db } from '../../firebase';
-import { getDBCount } from '../../Firebase/firestoreGet';
-import { mailOrderTOCustomer } from '../../functions';
+import { getData, getDBCount } from '../../Firebase/firestoreGet';
+import { AddAddress, mailOrderTOCustomer } from '../../functions';
 import Address_ind from '../checkout/address_ind';
 import {
     GetState,
@@ -36,6 +36,7 @@ function Order_form() {
 
     ////////////// address
     const [address, setAddress] = useState()
+    const [address_all, setAddress_all] = useState()
     const [country, setCounty] = useState( {"c":"India","id":101} );
     const [stateList, setStateList] = useState([]);
     const [cityList, setCityList] = useState([]);
@@ -48,6 +49,10 @@ function Order_form() {
             setStateList(result);
         });
         setOrderID().then(()=>{
+        })
+
+        getData(db.collection('users').doc(user.email).collection('address')).then((res)=>{
+            setAddress_all(res)
         })
         
     }, []);
@@ -148,7 +153,7 @@ function Order_form() {
         setLoad(false)
 
         mailOrderTOCustomer({...formData}).then(()=>{})
-
+        AddAddress(user.email, address).then(()=>{})
         console.log(formData)
         setState(4)
     }
@@ -256,6 +261,7 @@ function Order_form() {
                             setCityid = {setCityid} 
                             setCityList = {setCityList}
                             setAddress = {setAddress}
+                            address_all = {address_all}
                         />
                         <div class="order_form_2_buttons">
                 <button class="order_form_2_backButton"

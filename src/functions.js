@@ -127,3 +127,13 @@ export const AccountConfirmation = async(email, name)=>{
     }
 }
 
+export const AddAddress = async(email, data) =>{
+    try{
+        const coll = db.collection('users').doc(email).collection('address')
+        await addData(coll, null, data);
+        return true
+    }catch(e){
+        console.log(e)
+        return false
+    }
+}
