@@ -15,7 +15,7 @@ function Order_summary({data, setState, handleChange, submitOrder, address, meta
                 
                     <div class="order_form_3_summary_item">
                         <span class="order_form_3_label">{metadata[value] ? metadata[value].attr : value.replaceAll("_", " ")}</span>
-                        <span class="order_form_3_value">{data[value]}</span>
+                        <span class="order_form_3_value">{Array.isArray(data[value]) ? data[value].join(", ") :data[value]}</span>
                     </div>
                     }
                 </>
