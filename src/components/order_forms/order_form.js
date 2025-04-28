@@ -108,12 +108,12 @@ function Order_form() {
         implant_count : {type:"number", r:1, attr : "Number of Implants"},
         implant_brand : {type:"text", r:1, attr:"Implant Brand"},
         implant_system : {type:"text", r:1, attr : "Implant System"},
-        implant_dimensions_height : {type:"number", r:1, attr : "Implant Dimensions - Height (mm)"},
-        implant_dimensions_diameter : {type:"number", r:1, attr : "Implant Dimensions - Diameter (mm)"},
+        implant_dimensions_height : {type:"number", r:0, attr : "Implant Dimensions - Height (mm)"},
+        implant_dimensions_diameter : {type:"number", r:0, attr : "Implant Dimensions - Diameter (mm)"},
         implant_inter_distance : {type:"number", r:0, attr : "Inter-Implant Distance (mm)"},
         angulation_details : {type:"text", r:0, attr : "Angulation Details"},
         implant_system_label:{type:"file", r:1, attr : "Implant System Label Image"},
-        abutment_type : {type:"text", r:1, attr : "MUA (Multi-Unit Abutment) Used"},
+        abutment_type: {type:"select", r:1, attr : "Select Arch", values : ["Custom", "Custom"]
         additional_options : {type : "multiple", r:0, attr : "Additional Options"},
         quantity : {type : "number", r:0, attr : "Quantity", },
     }
