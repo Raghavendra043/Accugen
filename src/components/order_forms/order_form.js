@@ -108,6 +108,8 @@ function Order_form() {
         implant_count : {type:"number", r:1, attr : "Number of Implants"},
         implant_brand : {type:"text", r:1, attr:"Implant Brand"},
         implant_system : {type:"text", r:1, attr : "Implant System"},
+        implant sites in relation to tooth: {type:"text", r:1, attr:"Implant Sites"},
+        Pontic sites in relation to tooth: {type:"text", r:o, attr:"Implant Sites"},
         implant_dimensions_height : {type:"number", r:0, attr : "Implant Dimensions - Height (mm)"},
         implant_dimensions_diameter : {type:"number", r:0, attr : "Implant Dimensions - Diameter (mm)"},
         implant_inter_distance : {type:"number", r:0, attr : "Inter-Implant Distance (mm)"},
