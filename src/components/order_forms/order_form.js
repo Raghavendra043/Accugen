@@ -113,7 +113,7 @@ function Order_form() {
         implant_inter_distance : {type:"number", r:0, attr : "Inter-Implant Distance (mm)"},
         angulation_details : {type:"text", r:0, attr : "Angulation Details"},
         implant_system_label:{type:"file", r:1, attr : "Implant System Label Image"},
-        abutment_type: {type:"select", r:1, attr : "Select Arch", values : ["Custom", "Custom"]
+        abutment_type: {type:"select", r:1, attr : "Select Type", values : ["Custom", "Stock"]
         additional_options : {type : "multiple", r:0, attr : "Additional Options"},
         quantity : {type : "number", r:0, attr : "Quantity", },
     }
