@@ -5,6 +5,7 @@ import Malo_Framework  from '../assets/images/products/implant/Malo_Framework.pn
 import Surgical_Guides  from '../assets/images/products/implant/Surgical_Guides.png'
 import iBar  from '../assets/images/products/implant/iBar.png'
 import ti_bar  from '../assets/images/products/implant/ti_bar.png'
+import ibar-1  from '../assets/images/products/implant/ibar-1.png'
 
 
 // tooth solutions 
@@ -67,7 +68,7 @@ export const Sampledata = [
     sub: "All-on-X Screw-Retained",
     h: "FULL ARCH IMPLANT PROTHESIS",
     "title": "ACCUGEN™ Milled iBar",
-    img : iBar,
+    img : ibar-1,
     tag : "ceraMotion® Z Zirconia Full Arch Reinforced with rematitan® Titanium Bar",
     "description": "The ACCUGEN™ Milled I-Bar is a screw-retained, full-arch hybrid restoration that combines the esthetics of ceraMotion® Z zirconia with the strength of a rematitan® Ti5 titanium bar.Designed for full-arch rehabilitations, it provides long-term stability, fracture resistance, and a tension-free passive fit. Milled from a single solid block of titanium, it eliminates the risks of weld fatigue—making it ideal for patients needing both function and esthetics in a durable implant-supported solution.",
     "key_features": [
